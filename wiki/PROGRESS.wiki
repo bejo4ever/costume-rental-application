@@ -1,0 +1,33 @@
+#summary One-sentence summary of this page.
+
+= PROGRESS =
+
+
+*URL KELOMPOK 4 :*
+
+http://code.google.com/p/costume-rental-application/
+
+
+*YANG TELAH DILAKUKAN :*
+
+* MENAMBAH BERITA PADA WIKI MENGENAI :
+    * sistem fitur utama metal (oleh : Denia Fadila)
+    * DeskribsiFiturMETAL Costume Rental Application  (oleh : Putri Ayu)
+    * Costume Rental Application (oleh : Putri Ayu) 
+    * PROGRESS (oleh : Putri Ayu N)
+
+* MENAMBAHKAN ISSUE MENGENAI :
+    * Mengintegrasikan sistem aplikasi dengan data pelanggan dan stok baranG (oleh : Putri Ayu N)
+    * Digitalisasi Sistem Persewaan Kostum Manual Untuk Meminimalisir Kerugian Akibat Ketidak Integrasian Data Transaksi Menggunakan “METALL”( Costume Rental Application)
+     (oleh : Putri Ayu N)
+    * Menambahkan Usecase Registrasi (oleh : Rifanda Putri)
+    * User Interface (oleh : Denia Fadila)
+    * Hardware, Software, Communication Interface "METAL" (oleh : Denia Fadila)
+    * Mengintegrasikan sistem aplikasi dengan data pelanggan dan stok barang (oleh : Putri Ayu N)
+
+* MEMINDAHKAN BERITA DI WIKI KE ISSUE :
+    * diskribsi mengenai fitur(oleh : Putri Ayu N)
+
+* MENGGANTI LOGO : (OLEH :Putri Ayu N)
+
+* MENAMBAHKAN LINK BLOG http://si.its.ac.id/apps/elearning/ : (oleh : Putri Ayu N)
