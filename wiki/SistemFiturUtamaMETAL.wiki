@@ -1,4 +1,4 @@
-#labels -
+#labels Featured
 Terdapat 5 fitur utama pada METAL ini yaitu fitur profil perusahaan, kelola penyewa, stok barang yang disewakan, sistem sewa, dan reminder.
 
 Penjelasan Fitur
@@ -93,7 +93,5 @@ a. Menuliskan kata kunci pada kolom pencarian
 b. Sistem melakukan proses pencarian dengan pencocokan kata kunci yang dimasukkan dengan data yang ada di database
 c. Menampilkan hasil pencarian kata kunci yang dilakukan
  
-
-
 
 
