@@ -6,7 +6,7 @@ package boundary;
 
 /**
  *
- * @author a
+ * @author PUTRITOP
  */
 public class HalamanDaftarPelanggan {
     
