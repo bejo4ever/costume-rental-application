@@ -22,15 +22,17 @@ public class Sewa implements Serializable {
     private Long id;
     private String username;
     private String kode_barang;
-    private int harga_barang;
+    private int tanggal_sewa;
+    private int tanggal_kembali;
+    private int total_harga_barang;
    
-     public int getHarga_barang(){
-        return harga_barang;
+    
+   public int getTotal_Harga_barang(){
+        return total_harga_barang;
     }
-    public void setHarga_barang(int harga_barang) {
-        this.harga_barang = harga_barang;
+    public void setTotal_Harga_barang(int total_harga_barang) {
+        this.total_harga_barang = total_harga_barang;
     }
-   
     public Long getId() {
         return id;
     }
