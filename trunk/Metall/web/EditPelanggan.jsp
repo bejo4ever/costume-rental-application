@@ -1,19 +1,18 @@
 <%-- 
-    Document   : DaftarKostum
-    Created on : Dec 7, 2011, 8:12:11 PM
+    Document   : EditPelanggan
+    Created on : Dec 13, 2011, 12:41:35 PM
     Author     : Denia
 --%>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+ <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
 <head>
-<title>Sistem Persewaan Kostum Online</title>
+<title>butik online,butik baju,butik tas,toko online , toko pakaian, fashion online, grosir online, Jual Online, toko pakaian online, Jual Pakaian Online, Jual Baju Online,Toko Online</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <meta http-equiv="CONTENT-LANGUAGE" content="EN-US">
-<META NAME="DESCRIPTION" CONTENT="Toko Grosir busana wanita">
+<META NAME="DESCRIPTION" CONTENT="Sistem Persewaan Kostum Online">
 <META NAME="KEYWORDS" CONTENT="butik online,toko online, toko pakaian, fashion grosir,toko pakaian online, butik baju online, butik baju lokal, jual baju lokal ,baju butik, baju baru, baju baju, trend terkini, baju terkini, grosir baju, fashion online, toko baju online, toko baju, jual baju, beli baju, jual grosir, grosir baju, grosir pakai, jual pakaian, beli pakaian, jual kaos, beli kaos, dress, satin, jaket, kaos, baju murah, baju berkualiatas, baju lokal, baju import, tanah abang, tanah-abang, pakaian import, pakaian lokal, jual grosir, beli grosir, jual eceran, kaos kombad, baju mangga dua, baju tanah abang, itc mangga dua, grosir baju mangga dua, grosir baju tanah abang,Butik online, Butik baju, Butik Tas, Tas kw, Dress, bajubaruku, baju baru, grosir fashion, fashion terkini, baju modis, baju cowo, baju cewe, tas import, tas lokal ">
-
 
 <link href="style.css" rel="stylesheet" type="text/css">
 <link rel="shortcut icon" href="http://www.bajubaruku.com/logoside.ico">
@@ -42,17 +41,13 @@
                         </tr>
                     </table>
             	</td>-->
-            	<td width=897><img src="headban/logohead.png" width=896 height=254 ></td>
+            	<td width=897><img src="headban/logohead.png" width=896 height=254 >
+                </td>
 
             </tr>
      	<table>
-   </td> 
+    
     <td align="right"><a href="#">Logout</a></tr>
-    <a href="#">Logout</a>
-  
- 
-  <tr align="right"></tr>
-    <a href="#">Logout</a>
   
 <tr>
 	<td align="center" bgcolor="#99CC99"><table width="690" border="0" cellpadding="0" cellspacing="0" >
@@ -78,106 +73,67 @@
         <td class="align_left_top2"  valign="top" ></td>
         <td width="585" rowspan="8" align="left" valign="top"><table width="100%">
           <tr>
-            <td ><h4>Sistem Persewaan Kostum Online</h4></td>
+            <td width="50%" ><marquee><h4>Sistem Persewaan Kostum Online</h4></marquee></td>
           </tr>
           <tr>
-            <td colspan="2" class="text_orange"><center>
-              <marquee>
-                <h2><b>Daftar Kostum</b></h2>
-              </marquee>
+            <td width="50%" colspan="2" class="text_orange"><center>
+            
+                <h2><b>Edit Daftar Pelanggan</b></h2>
             </center></td>
           </tr>
           <tr>
-            <td ><a href="#"></a></td>
+            <td >&nbsp;</td>
           </tr>
           <tr>
-            <td colspan="2"><table width="652" height="324" border="0">
+            <td colspan="2"><table width="577" height="232" border="0">
               <tr>
-                <td width="65" align="center">Id</td>
-                <td width="128" align="center">Nama Kostum</td>
-                <td width="70" align="center">Jumlah</td>
-                <td width="70" align="center">Harga</td>
-                <td width="70" align="center">Kategori</td>
-                <td width="70" align="center">Deskripsi</td>
-                <td colspan="2" align="center">Tindakan</td>
-                </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td width="70" align="center"><a href="#">Edit</a></td>
-                <td width="75" align="center"><a href="#">Hapus</a></td>
+                <td width="117">Id</td>
+                <td width="450"><form name="form1" method="post" action="">
+                  <label>
+                    <input type="text" name="id" id="textfield">
+                  </label>
+                </form></td>
               </tr>
               <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td align="center"><a href="#">Edit</a></td>
-                <td align="center"><a href="#">Hapus</a></td>
-                </tr>
+                <td>Username</td>
+
+                <td><form name="form2" method="post" action="">
+                  <label>
+                    <input name="nama_kostum" type="text" id="textfield2">
+                  </label>
+                </form></td>
+              </tr>
               <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td align="center"><a href="#">Edit</a></td>
-                <td align="center"><a href="#">Hapus</a></td>
-                </tr>
+                <td>Password</td>
+                <td><label>
+                  <input type="text" name="jumlah" id="textfield3">
+                </label></td>
+              </tr>
               <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td align="center"><a href="#">Edit</a></td>
-                <td align="center"><a href="#">Hapus</a></td>
-                </tr>
+                <td>Nama Pelanggan</td>
+                <td><label>
+                  <input name="harga" type="text" id="textfield4" size="40">
+                </label></td>
+              </tr>
               <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td align="center"><a href="#">Edit</a></td>
-                <td align="center"><a href="#">Hapus</a></td>
-                </tr>
+                <td>Alamat</td>
+                <td><form name="form4" method="post" action="">
+                  <p>
+                    <input name="textfield" type="text" id="textfield5" size="70">
+                    <br>
+                  </p>
+                </form></td>
+              </tr>
               <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td align="center"><a href="#">Edit</a></td>
-                <td align="center"><a href="#">Hapus</a></td>
-                </tr>
+                <td height="30">No. Telp</td>
+                <td><input type="text" name="textfield2" id="textfield6"></td>
+              </tr>
               <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td align="center"><a href="#">Edit</a></td>
-                <td align="center"><a href="#">Hapus</a></td>
-                </tr>
+                <td height="26">&nbsp;</td>
+                <td align="center"><a href="#">Simpan</a></td>
+              </tr>
             </table></td>
           </tr>
-          <tr>
-            <td width="50%" >&nbsp;</td>
-            <td width="50%" ><a href="#">Tambah Kostum </a></td>
-          </tr>
-          <tr> </tr>
         </table></td>
         <td width="159" colspan="2" rowspan="8" align="left" valign="top" class="kolom_kanan"><div id="kolom_kanan">
           <table width="100%">
@@ -218,19 +174,18 @@
 
   <tr align="right">
     <td align="left" class="footer_bg">
-<div id="footer"></div>	
-<script type="text/javascript">
+<div id="footer">
+  <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 
-</script>
-<script type="text/javascript">
+  </script>
+  <script type="text/javascript">
 try {
 var pageTracker = _gat._getTracker("UA-11522604-1");
 pageTracker._trackPageview();
 } catch(err) {}</script>
-
-</td>
+</div></td>
   </tr>
 
 </table>
