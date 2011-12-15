@@ -22,8 +22,8 @@ public class Sewa implements Serializable {
     private Long id;
     private String username;
     private String kode_barang;
-    private int tanggal_sewa;
-    private int tanggal_kembali;
+    private String tanggal_sewa;
+    private String tanggal_kembali;
     private int total_harga_barang;
    
     
@@ -40,7 +40,13 @@ public class Sewa implements Serializable {
     public void setId(Long id) {
         this.id = id;
     }
-
+     public String getUsername() {
+        return username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
      public String getKode_barang() {
         return kode_barang;
     }
@@ -48,13 +54,7 @@ public class Sewa implements Serializable {
         this.kode_barang = kode_barang;
     }
     
-    public String getUsername() {
-        return username;
-    }
-    public void setUsername(String username) {
-        this.username = username;
-    }
-    
+   
     @Override
     public int hashCode() {
         int hash = 0;
