@@ -53,7 +53,18 @@ public class Sewa implements Serializable {
     public void setKode_barang(String kode_barang) {
         this.kode_barang = kode_barang;
     }
-    
+    public String getTanggal_sewa() {
+        return tanggal_sewa;
+    }
+    public void setTanggal_sewa(String tanggal_sewa) {
+        this.tanggal_sewa = tanggal_sewa;
+    }
+    public String getTanggal_kembali() {
+        return tanggal_kembali;
+    }
+    public void setTanggal_kembali(String tanggal_kembali) {
+        this.tanggal_kembali = tanggal_kembali;
+    }
    
     @Override
     public int hashCode() {
