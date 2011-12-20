@@ -20,6 +20,7 @@ public class Aksesoris implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String kode_kostum;
     private String nama_aksesoris;
     private int harga_aksesoris;
     private String jumlah_aksesoris;
@@ -40,6 +41,14 @@ public class Aksesoris implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
+    }
+    
+    public String getKode_kostum() {
+        return kode_kostum;
+    }
+    
+    public void setKode_kostum(String kode_kostum) {
+        this.kode_kostum = kode_kostum;
     }
     
     public String getNama_aksesoris() {
