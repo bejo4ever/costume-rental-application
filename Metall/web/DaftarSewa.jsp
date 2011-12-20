@@ -11,12 +11,12 @@
 <title>Sistem Persewaan Kostum Online</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <meta http-equiv="CONTENT-LANGUAGE" content="EN-US">
-<META NAME="DESCRIPTION" CONTENT="Toko Grosir busana wanita">
-<META NAME="KEYWORDS" CONTENT="butik online,toko online, toko pakaian, fashion grosir,toko pakaian online, butik baju online, butik baju lokal, jual baju lokal ,baju butik, baju baru, baju baju, trend terkini, baju terkini, grosir baju, fashion online, toko baju online, toko baju, jual baju, beli baju, jual grosir, grosir baju, grosir pakai, jual pakaian, beli pakaian, jual kaos, beli kaos, dress, satin, jaket, kaos, baju murah, baju berkualiatas, baju lokal, baju import, tanah abang, tanah-abang, pakaian import, pakaian lokal, jual grosir, beli grosir, jual eceran, kaos kombad, baju mangga dua, baju tanah abang, itc mangga dua, grosir baju mangga dua, grosir baju tanah abang,Butik online, Butik baju, Butik Tas, Tas kw, Dress, bajubaruku, baju baru, grosir fashion, fashion terkini, baju modis, baju cowo, baju cewe, tas import, tas lokal ">
+<META NAME="DESCRIPTION" CONTENT="">
+<META NAME="KEYWORDS" CONTENT="Sistem Persewaan Kostum Online">
 
 
 <link href="style.css" rel="stylesheet" type="text/css">
-<link rel="shortcut icon" href="http://www.bajubaruku.com/logoside.ico">
+<link rel="shortcut icon" href="">
 <SCRIPT src="anim.js"></SCRIPT>
 
 </head>
@@ -62,7 +62,7 @@
             <a class="klikmenu" href="index.php">Daftar Kostum</a>&nbsp;|&nbsp;	
             <a class="klikmenu" href="cara.php">Toko</a>&nbsp;|&nbsp;
             <a class="klikmenu" href="tanya.php">Pelanggan</a>&nbsp;|&nbsp;
-            <a class="klikmenu" href="prosespay.php">Sewa Barang</a>&nbsp;|&nbsp;
+            <a class="klikmenu" href="prosespay.php">Sewa Kostum</a>&nbsp;|&nbsp;
             <a class="klikmenu" href="prosespay.php">Pengingat</a>&nbsp;|&nbsp;
             
 
@@ -94,10 +94,10 @@
             <td colspan="2"><table width="596" height="324" border="0">
               <tr>
                 <td width="71" align="center">Username</td>
-                <td width="92" align="center">Kode Barang</td>
+                <td width="92" align="center">Kode Kostum</td>
                 <td width="96" align="center">Tanggal Sewa </td>
                 <td width="110" align="center">Tanggal Kembali </td>
-                <td width="94" align="center">Total Harga Barang </td>
+                <td width="94" align="center">Total Harga Kostum </td>
                 <td colspan="2" align="center">Tindakan</td>
                 </tr>
               <tr>
