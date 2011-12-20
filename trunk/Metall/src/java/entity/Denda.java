@@ -20,7 +20,7 @@ public class Denda implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String kode_barang;
+    private String kode_kostum;
     private String tanggal_sewa;
     private String tanggal_kembali;
     private int jumlah_hari_terlambat;
@@ -41,11 +41,11 @@ public class Denda implements Serializable {
         this.id = id;;
     }    
         
-    public String getKode_barang() {
-        return kode_barang;
+    public String getKode_kostum() {
+        return kode_kostum;
     }
-    public void setKode_barang(String kode_barang) {
-        this.kode_barang = kode_barang;
+    public void setKode_kostum(String kode_kostum) {
+        this.kode_kostum = kode_kostum;
     }
      public String getTanggal_sewa() {
         return tanggal_sewa;
