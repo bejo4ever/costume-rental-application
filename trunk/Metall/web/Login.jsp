@@ -11,12 +11,12 @@
 <title>Sistem Persewaan Kostum Online</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <meta http-equiv="CONTENT-LANGUAGE" content="EN-US">
-<META NAME="DESCRIPTION" CONTENT="Toko Grosir busana wanita">
-<META NAME="KEYWORDS" CONTENT="butik online,toko online, toko pakaian, fashion grosir,toko pakaian online, butik baju online, butik baju lokal, jual baju lokal ,baju butik, baju baru, baju baju, trend terkini, baju terkini, grosir baju, fashion online, toko baju online, toko baju, jual baju, beli baju, jual grosir, grosir baju, grosir pakai, jual pakaian, beli pakaian, jual kaos, beli kaos, dress, satin, jaket, kaos, baju murah, baju berkualiatas, baju lokal, baju import, tanah abang, tanah-abang, pakaian import, pakaian lokal, jual grosir, beli grosir, jual eceran, kaos kombad, baju mangga dua, baju tanah abang, itc mangga dua, grosir baju mangga dua, grosir baju tanah abang,Butik online, Butik baju, Butik Tas, Tas kw, Dress, bajubaruku, baju baru, grosir fashion, fashion terkini, baju modis, baju cowo, baju cewe, tas import, tas lokal ">
+<META NAME="DESCRIPTION" CONTENT="">
+<META NAME="KEYWORDS" CONTENT="Sistem Persewaan Kostum Online">
 
 
 <link href="style.css" rel="stylesheet" type="text/css">
-<link rel="shortcut icon" href="http://www.bajubaruku.com/logoside.ico">
+<link rel="shortcut icon" href="">
 <SCRIPT src="anim.js"></SCRIPT>
 
 </head>
@@ -47,8 +47,6 @@
 
             </tr>
      	<table>
-   </td> 
-  </tr>
  
   </tr>
 <tr>
@@ -56,40 +54,29 @@
 	  <table width="690" border="0" cellpadding="0" cellspacing="0" >
 
         <tr class='menu'><td align="center" class="text_putih">&nbsp;</td></tr>
-    </table>
-</td>
+    </table></td>
 </tr>		
 
    <tr>
     <td>
    <table width="100%">
 	  <tr>
-	    <td class="align_left_top2"  valign="top" >	
-		
-		</td>
+	    <td class="align_left_top2"  valign="top" >		</td>
 
 	    <td width="585" rowspan="8" align="left" valign="top">
      
 	      <table width="100%">
 	        <tr>
-	          <td >&nbsp;
-
-			  </td>
+	          <td >&nbsp;			  </td>
               </tr>          
 	        <tr>
 	          <td colspan="2" class="text_orange"><center><marquee>
-	          <h2><b>Sistem Persewaan Kostum Online</b>
-	            </h2>
+	          <h2><b>Sistem Persewaan Kostum Online</b>	            </h2>
 	          </marquee>
-	          </center>
-
-			  </td>
-             
+	          </center>			  </td>
               </tr>
 	        <tr>
-	          <td >&nbsp;
-
-			  </td>
+	          <td >&nbsp;			  </td>
               </tr> 
 
 <tr>
@@ -383,7 +370,6 @@
       </table></td>
     </tr>
   </table></td>
-
               </tr>
     
                 <tr>
@@ -391,8 +377,7 @@
                     <td width="50%" >&nbsp;</td>
               </tr>
                 <tr>          </tr>
-            </table>
-          </td>
+            </table>          </td>
 
 
 
@@ -427,8 +412,7 @@
   </tr>
 
 	        <tr>
-	          <td colspan="2"><div align="left"></div>				
-             </td>
+	          <td colspan="2"><div align="left"></div>             </td>
     </tr>
 	        	        
 	        
@@ -450,7 +434,6 @@
 
 <tr>
 <td colspan="2" class="detilkanan"><img src='kanant.gif' width=12 height=12 /><b class="text_biru" >&nbsp;Cari Barang</b></td>
-
 </tr>
 <tr>
 	 <td colspan="2" style="padding-left:5px;">&nbsp;</td>
@@ -461,32 +444,25 @@
     
 	<form style="padding:0; margin:0;" name="formid" action="viewzoom.php" method="post">
     <tr>
-    	<td align="center">Masukkan Id/Nama/Kategori/Ukuran Kostum :</td>
+    	<td align="center">Masukkan Username/Nama/Kategori/Ukuran Kostum :</td>
     </tr>
 
     <tr>
     	<td align="center"><input type="text" name="iditemf" size="20" maxlength="10" class="text_box_kanan" autocomplete="off" ></td>
 	</tr>
     <tr>
-    	<td align="center"><input type="submit" name="Enter" value="Enter" class="button_submit">
-        </td>
+    	<td align="center"><input type="submit" name="Enter" value="Enter" class="button_submit">        </td>
     </tr>
 	</form>
-    </table>
-
-</td>
+    </table></td>
 </tr>
 <tr>
 	          <td colspan="2" >&nbsp; </td>
 </tr>
-
    	          </table>
 </div>    
 
-          <br>
-
-
-</td>
+          <br></td>
 	    </tr>
 
 
@@ -523,22 +499,12 @@
     </ul>
   <p>
     <center>
-
-
-
-
-
-
-
-
-
 </p>
       </p>
 </div>
         <tr>
         <td align="left" valign="top" class="kolom_kiri">       
-      </table>
-</td>
+      </table></td>
   </tr>
 
   <tr>
@@ -553,11 +519,8 @@ document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.
 try {
 var pageTracker = _gat._getTracker("UA-11522604-1");
 pageTracker._trackPageview();
-} catch(err) {}</script>
-
-</td>
+} catch(err) {}</script></td>
   </tr>
-
 </table>
 </body>
 </html>
