@@ -8,14 +8,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
 <head>
-<title>butik online,butik baju,butik tas,toko online , toko pakaian, fashion online, grosir online, Jual Online, toko pakaian online, Jual Pakaian Online, Jual Baju Online,Toko Online</title>
+<title>Sistem Persewaan Kostum Online</title>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <meta http-equiv="CONTENT-LANGUAGE" content="EN-US">
-<META NAME="DESCRIPTION" CONTENT="Sistem Persewaan Kostum Online">
-<META NAME="KEYWORDS" CONTENT="butik online,toko online, toko pakaian, fashion grosir,toko pakaian online, butik baju online, butik baju lokal, jual baju lokal ,baju butik, baju baru, baju baju, trend terkini, baju terkini, grosir baju, fashion online, toko baju online, toko baju, jual baju, beli baju, jual grosir, grosir baju, grosir pakai, jual pakaian, beli pakaian, jual kaos, beli kaos, dress, satin, jaket, kaos, baju murah, baju berkualiatas, baju lokal, baju import, tanah abang, tanah-abang, pakaian import, pakaian lokal, jual grosir, beli grosir, jual eceran, kaos kombad, baju mangga dua, baju tanah abang, itc mangga dua, grosir baju mangga dua, grosir baju tanah abang,Butik online, Butik baju, Butik Tas, Tas kw, Dress, bajubaruku, baju baru, grosir fashion, fashion terkini, baju modis, baju cowo, baju cewe, tas import, tas lokal ">
+<META NAME="DESCRIPTION" CONTENT="">
+<META NAME="KEYWORDS" CONTENT="Sistem Persewaan Kostum Online">
 
 <link href="style.css" rel="stylesheet" type="text/css">
-<link rel="shortcut icon" href="http://www.bajubaruku.com/logoside.ico">
+<link rel="shortcut icon" href="">
 <SCRIPT src="anim.js"></SCRIPT>
 
 </head>
@@ -57,7 +57,7 @@
             <a class="klikmenu" href="index.php">Daftar Kostum</a>&nbsp;|&nbsp;	
             <a class="klikmenu" href="cara.php">Toko</a>&nbsp;|&nbsp;
             <a class="klikmenu" href="tanya.php">Pelanggan</a>&nbsp;|&nbsp;
-            <a class="klikmenu" href="prosespay.php">Sewa Barang</a>&nbsp;|&nbsp;
+            <a class="klikmenu" href="prosespay.php">Sewa Kostum</a>&nbsp;|&nbsp;
             <a class="klikmenu" href="prosespay.php">Pengingat</a>&nbsp;|&nbsp;
             
 
@@ -87,17 +87,9 @@
           <tr>
             <td colspan="2"><table width="577" height="232" border="0">
               <tr>
-                <td width="117">Id</td>
-                <td width="450"><form name="form1" method="post" action="">
-                  <label>
-                    <input type="text" name="id" id="textfield">
-                  </label>
-                </form></td>
-              </tr>
-              <tr>
-                <td>Username</td>
+                <td width="117">Username</td>
 
-                <td><form name="form2" method="post" action="">
+                <td width="450"><form name="form2" method="post" action="">
                   <label>
                     <input name="nama_kostum" type="text" id="textfield2">
                   </label>
@@ -138,7 +130,7 @@
         <td width="159" colspan="2" rowspan="8" align="left" valign="top" class="kolom_kanan"><div id="kolom_kanan">
           <table width="100%">
             <tr>
-              <td class="detilkanan"><img src='kanant.gif' width=12 height=12 /><b class="text_biru" >&nbsp;Cari Barang</b></td>
+              <td class="detilkanan"><img src='kanant.gif' width=12 height=12 /><b class="text_biru" >&nbsp;Cari Kostum</b></td>
             </tr>
             <tr>
               <td style="padding-left:5px;">&nbsp;</td>
@@ -147,7 +139,7 @@
               <td><table class="tabel_kanan" width=100% cellspacing="1">
                 <form style="padding:0; margin:0;" name="formid" action="viewzoom.php" method="post">
                   <tr>
-                    <td align="center">Masukkan Id/Nama/Kategori/Ukuran Kostum :</td>
+                    <td align="center">Masukkan Username/Nama/Kategori/Ukuran Kostum :</td>
                   </tr>
                   <tr>
                     <td align="center"><input type="text" name="iditemf" size="20" maxlength="10" class="text_box_kanan" autocomplete="off" ></td>
