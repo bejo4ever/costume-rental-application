@@ -17,7 +17,7 @@ import javax.persistence.criteria.Root;
 
 /**
  *
- * @author a
+ * @author Denia
  */
 public class DaftarPelanggan implements Serializable {
  
@@ -45,7 +45,51 @@ public class DaftarPelanggan implements Serializable {
             }
         }
     }
+    
+    
+    //Menambahkan method check untuk melihat adanya pengguna atau tidak
+    public boolean check(String username, String password) {
+        boolean result = false;
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createQuery("SELECT count(o) FROM User AS o WHERE o.username=:usr AND o.password=:pswd");
+            q.setParameter("username", username);
+            q.setParameter("password", password);
+            int jumlahPelanggan = ((Long) q.getSingleResult()).intValue();
+            if (jumlahPelanggan > 0) {
+                result = true;
+            }
+        } finally {
+            em.close();
+        }
+        return result;
+    }
 
+    
+    //Menambahkan method getPelanggan yang dipanggil dari servlet Login
+    public Pelanggan getPelanggan(String username, String password) {
+        Pelanggan pelanggan = null;
+        EntityManager em = getEntityManager();
+        try {
+            boolean hasilCheck = this.check(username, password);
+            if (hasilCheck) {
+                Query q = em.createQuery("SELECT object(o) FROM User AS o WHERE o.username=:usr AND o.password=:pswd");
+                q.setParameter("username", username);
+                q.setParameter("password", password);
+                pelanggan = (Pelanggan) q.getSingleResult();
+            }
+        } finally {
+            em.close();
+        }
+        return pelanggan;
+    }
+    
+    
+    
+    
+    
+    
+    
     public void edit(Pelanggan pelanggan) throws NonexistentEntityException, Exception {
         EntityManager em = null;
         try {
@@ -135,5 +179,9 @@ public class DaftarPelanggan implements Serializable {
             em.close();
         }
     }
+//Dibawah ini menambahkan method getPelanggan yang dipanggil dari servlet Login
+    /*public Pelanggan getPelanggan(String username, String password) {
+        throw new UnsupportedOperationException("Not yet implemented"); 
+    }*/
     
 }
