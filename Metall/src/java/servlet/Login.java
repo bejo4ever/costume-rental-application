@@ -4,19 +4,24 @@
  */
 package servlet;
 
+
+import entity.Pelanggan;
+import entity.DaftarPelanggan;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+//import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author a
+ * @author Denia
  */
-@WebServlet(name = "login", urlPatterns = {"/login"})
+//@WebServlet(name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
 
     /** 
@@ -30,21 +35,58 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Login</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Login at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
-        } finally {            
-            out.close();
+        HttpSession session = request.getSession();
+        RequestDispatcher dis = null;
+        DaftarPelanggan daftarPelanggan = new DaftarPelanggan();
+        String message = null;
+       
+        
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            Pelanggan pelanggan = daftarPelanggan.getPelanggan(username,password);
+           // Pelanggan user = new Pelanggan();
+            // DaftarPelanggan dp = new DaftarPelanggan();
+            //pelanggan.setUsername(username);
+            //pelanggan.setPassword(password);
+            
+            //Kondisi jika username dan password ada yang tidak diisi
+             if (username.equals("") || password.equals("") ) {
+            RequestDispatcher requestDispatcher =
+                request.getRequestDispatcher("/error_login.jsp");
+                message ="Username dan password harus diisi!";
+                request.setAttribute("message", message);
+                requestDispatcher.forward(request, response);
         }
+              else{
+            if (pelanggan != null) {
+                    session.setAttribute("sessionusername", username);
+                    if (pelanggan.getTipe() == 0) {
+                        request.setAttribute("user", username);
+                        dis = request.getRequestDispatcher("HomeAdmin.jsp");
+                        dis.forward(request, response);
+                    }
+                    else if(username.getTipe() == 1) {
+                        request.setAttribute("user", username);
+                        dis = request.getRequestDispatcher("MenuUtamaPelanggan.jsp");
+                        dis.forward(request, response);
+                    }
+                    /* else{
+                        request.setAttribute("user", username);
+                        dis = request.getRequestDispatcher("Login.jsp");
+                        dis.forward(request, response);
+                    }*/
+                    
+                    
+        }
+        else {
+            RequestDispatcher requestDispatcher =
+                    request.getRequestDispatcher("/error_login.jsp");
+                    message ="Username atau Password yang anda masukkan tidak cocok!";
+                    request.setAttribute("message", message);
+                    requestDispatcher.forward(request, response);
+        }}
     }
+             
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
