@@ -12,7 +12,7 @@ import javax.persistence.Id;
 
 /**
  *
- * @author a
+ * @author Denia
  */
 @Entity
 public class Pelanggan implements Serializable {
@@ -25,6 +25,7 @@ public class Pelanggan implements Serializable {
     private String nama_pelanggan;
     private String alamat_pelanggan;
     private int telpon_pelanggan;
+    private int tipe;
     
     public Long getId() {
         return id;
@@ -68,6 +69,13 @@ public class Pelanggan implements Serializable {
     public void setAlamat_pelanggan(String alamat_pelanggan) {
         this.alamat_pelanggan = alamat_pelanggan;
     }
+     public int getTipe() {
+        return tipe;
+    }
+
+    public void setTipe(int tipe) {
+        this.tipe = tipe;
+    }
    
     
     @Override
@@ -94,5 +102,10 @@ public class Pelanggan implements Serializable {
     public String toString() {
         return "entity.Pelanggan[ id=" + id + " ]";
     }
+
+    //Dibawah ini menambahkan method getTipe yang dipanggil dari servlet Login
+   // public int getTipe() {
+     //   throw new UnsupportedOperationException("Not yet implemented");
+  //  }
     
 }
