@@ -62,12 +62,12 @@ public class Login extends HttpServlet {
                     session.setAttribute("sessionusername", username);
                     if (pelanggan.getTipe() == 0) {
                         request.setAttribute("user", username);
-                        dis = request.getRequestDispatcher("HomeAdmin.jsp");
+                        dis = request.getRequestDispatcher("HapusKostum_HomeAdmin.jsp");
                         dis.forward(request, response);
                     }
-                    else if(username.getTipe() == 1) {
+                    else if(pelanggan.getTipe() == 1) {
                         request.setAttribute("user", username);
-                        dis = request.getRequestDispatcher("MenuUtamaPelanggan.jsp");
+                        dis = request.getRequestDispatcher("HomePelanggan.jsp");
                         dis.forward(request, response);
                     }
                     /* else{
