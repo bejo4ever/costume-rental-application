@@ -34,7 +34,6 @@ public class Aksesoris implements Serializable {
         this.harga_aksesoris = harga_aksesoris;
     }
     
-    
      public Long getId() {
         return id;
     }
