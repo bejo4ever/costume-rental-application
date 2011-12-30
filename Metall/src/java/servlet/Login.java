@@ -52,7 +52,7 @@ public class Login extends HttpServlet {
             //Kondisi jika username dan password ada yang tidak diisi
              if (username.equals("") || password.equals("") ) {
             RequestDispatcher requestDispatcher =
-                request.getRequestDispatcher("/error_login.jsp");
+                request.getRequestDispatcher("HomeLogin.jsp");
                 message ="Username dan password harus diisi!";
                 request.setAttribute("message", message);
                 requestDispatcher.forward(request, response);
