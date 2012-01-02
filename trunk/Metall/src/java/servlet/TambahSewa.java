@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "TambahSewa", urlPatterns = {"/TambahSewa"})
 public class TambahSewa extends HttpServlet {
     
-    public String addCostume(HttpServletRequest request) {
+    public String addSewa(HttpServletRequest request) {
 
         String username = request.getParameter("username");
         String kode_barang = request.getParameter("kode_barang");
@@ -30,14 +30,14 @@ public class TambahSewa extends HttpServlet {
         String tanggal_kembali = request.getParameter("tanggal_kembali");
         int total_harga_barang = Integer.parseInt(request.getParameter("total_harga_barang"));
         Sewa sewa = new Sewa();
-        DaftarSewa dk = new DaftarSewa();
+        DaftarSewa ds = new DaftarSewa();
         sewa.setUsername(username);
         sewa.setKode_barang(kode_barang);
         sewa.setTanggal_sewa(tanggal_sewa);
         sewa.setTanggal_kembali(tanggal_kembali);
         sewa.setTotal_Harga_barang(total_harga_barang);
 
-        dk.create(sewa);
+        ds.createsewa(sewa);
 
         return "daftarsewainfo.jsp";
     }
@@ -55,7 +55,7 @@ public class TambahSewa extends HttpServlet {
         PrintWriter out = response.getWriter();
         RequestDispatcher dis = null;
 
-        dis = request.getRequestDispatcher(this.addCostume(request));
+        dis = request.getRequestDispatcher(this.addSewa(request));
         dis.forward(request, response);
 
     }

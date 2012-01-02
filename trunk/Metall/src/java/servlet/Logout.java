@@ -4,8 +4,8 @@
  */
 package servlet;
 
-import entity.Pelanggan;
-import entity.DaftarPelanggan;
+//import entity.Pelanggan;
+//import entity.DaftarPelanggan;
 //import jpa.UserJpaController;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
@@ -47,7 +47,7 @@ public class Logout extends HttpServlet {
             
             
         
-        }
+        
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
