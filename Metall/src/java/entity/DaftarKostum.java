@@ -5,7 +5,7 @@
 package entity;
 
 import entity.exceptions.NonexistentEntityException;
-import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -19,18 +19,18 @@ import javax.persistence.criteria.Root;
  *
  * @author a
  */
-public class DaftarKostum implements Serializable {
+public class DaftarKostum {
 
     public DaftarKostum() {
-         emf = Persistence.createEntityManagerFactory("MetallPU");
+         emf = Persistence.createEntityManagerFactory("persistence");
     }
     private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
     }
-
-    public void create(Kostum kostum) {
+    // getting new kostum
+    public void addKostum(Kostum kostum) {
         EntityManager em = null;
         try {
             em = getEntityManager();
@@ -43,23 +43,34 @@ public class DaftarKostum implements Serializable {
             }
         }
     }
+    
+      //getting list of Kostum
+    public List<Kostum> getDaftarKostum() {
+        List<Kostum> daftarKostum = new ArrayList<Kostum>();
 
-    public void edit(Kostum kostum) throws NonexistentEntityException, Exception {
-        EntityManager em = null;
+        EntityManager em = getEntityManager();
         try {
-            em = getEntityManager();
-            em.getTransaction().begin();
-            kostum = em.merge(kostum);
+            Query q = em.createQuery("SELECT object(o) FROM Kostum AS o");
+            daftarKostum = q.getResultList();
+            // }
+
+        } finally {
+            em.close();
+        }
+        return daftarKostum;
+    }
+    
+    
+  
+
+    public void editKostum(Kostum kostum){
+        EntityManager em = null;
+        em.getTransaction().begin();
+        try {
+            em.merge(kostum);
             em.getTransaction().commit();
         } catch (Exception ex) {
-            String msg = ex.getLocalizedMessage();
-            if (msg == null || msg.length() == 0) {
-                Long id = kostum.getId();
-                if (findKostum(id) == null) {
-                    throw new NonexistentEntityException("The kostum with id " + id + " no longer exists.");
-                }
-            }
-            throw ex;
+             em.getTransaction().rollback();
         } finally {
             if (em != null) {
                 em.close();
@@ -67,20 +78,20 @@ public class DaftarKostum implements Serializable {
         }
     }
 
-    public void destroy(Long id) throws NonexistentEntityException {
-        EntityManager em = null;
+    public void deleteKostum(Long id) throws NonexistentEntityException {
+        EntityManager em = getEntityManager();
+        em.getTransaction().begin();
         try {
-            em = getEntityManager();
-            em.getTransaction().begin();
-            Kostum kostum;
+             Kostum kostum;
             try {
-                kostum = em.getReference(Kostum.class, id);
-                kostum.getId();
+                kostum = em.find(Kostum.class, id);
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The kostum with id " + id + " no longer exists.", enfe);
             }
             em.remove(kostum);
             em.getTransaction().commit();
+        } catch (Exception e) {
+            em.getTransaction().rollback();
         } finally {
             if (em != null) {
                 em.close();
@@ -133,5 +144,36 @@ public class DaftarKostum implements Serializable {
             em.close();
         }
     }
+
+
+    public boolean checkKostum(String nama_kostum) {
+       
+         boolean result = false;
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createQuery("SELECT count(o) FROM Kostum AS o WHERE o.nama_kostum=:nama_kostum");
+            q.setParameter("nama_kostum", nama_kostum);
+            int jumlah_kostum = ((Long) q.getSingleResult()).intValue();
+            if (jumlah_kostum > 0) {
+                result = true;
+            }
+             } finally {
+            em.close();
+        }
+        return result;
+    }
     
-}
+  public boolean cekKostum() { 
+        boolean result = false;
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createQuery("SELECT count(o) FROM Kostum AS o");
+            int jumlahKostum = ((Long) q.getSingleResult()).intValue();
+            if (jumlahKostum > 0) {
+                result = true;
+            }
+        } finally {
+            em.close();
+        }
+        return result;
+  }}

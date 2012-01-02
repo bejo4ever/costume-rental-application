@@ -27,25 +27,32 @@ public class Kostum implements Serializable {
     private String kategori_kostum;
     private String deskripsi_kostum;
     
-    
+    //getting harga kostum
     public int getHarga_kostum(){
         return harga_kostum;
     }
+    
+    //setting harga kostum
     public void setHarga_kostum(int harga_kostum) {
         this.harga_kostum = harga_kostum;
     }
     
+    //getting id kostum
     public Long getId() {
         return id;
     }
-
+    
+    //setting id kostum
     public void setId(Long id) {
         this.id = id;
     }
     
+    //getting kode kostum
     public String getKode_kostum() {
         return kode_kostum;
     }
+    
+    //setting kode kostum
     public void setKode_kostum(String kode_kostum) {
         this.kode_kostum = kode_kostum;
     }
