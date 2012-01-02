@@ -19,10 +19,18 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author a
  */
-@WebServlet(name = "TambahKostum", urlPatterns = {"/kostum"})
+
 public class TambahKostum extends HttpServlet {
 
-    public String addCostume(HttpServletRequest request) {
+   protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        RequestDispatcher dis = null;
+        String message = null;
+        String page;
+        DaftarKostum dk = new DaftarKostum();
+        Kostum kostum = new Kostum();
 
         String kode_kostum = request.getParameter("kode_kostum");
         String nama_kostum = request.getParameter("nama_kostum");
@@ -30,8 +38,19 @@ public class TambahKostum extends HttpServlet {
         int harga_kostum = Integer.parseInt(request.getParameter("harga_kostum"));
         String kategori_kostum = request.getParameter("kategori_kostum");
         String deskripsi_kostum = request.getParameter("deskripsi_kostum");
-        Kostum kostum = new Kostum();
-        DaftarKostum dk = new DaftarKostum();
+        
+         if (kode_kostum.equals("") || nama_kostum.equals("") || jumlah_kostum.equals("")
+                 || kategori_kostum.equals("") || deskripsi_kostum.equals("")) {
+            RequestDispatcher requestDispatcher =
+                    request.getRequestDispatcher("/error_page.jsp");
+            message = "Data tidak lengkap, isi semua field dengan tanda (*) ";
+            request.setAttribute("message", message);
+            requestDispatcher.forward(request, response);
+        } 
+         else {
+            boolean hasilCheck = dk.checkKostum(nama_kostum);
+            if (!hasilCheck) {
+        
         kostum.setKode_kostum(kode_kostum);
         kostum.setNama_kostum(nama_kostum);
         kostum.setJumlah_kostum(jumlah_kostum);
@@ -39,9 +58,24 @@ public class TambahKostum extends HttpServlet {
         kostum.setKategori_kostum(kategori_kostum);
         kostum.setDeskripsi_kostum(deskripsi_kostum);
 
-        dk.create(kostum);
-
-        return "daftarkostuminfo.jsp";
+        dk.addKostum(kostum);
+        RequestDispatcher requestDispatcher =
+                        request.getRequestDispatcher("/successSaving.jsp");
+                message = "Kostum berhasil ditambahkan";
+                page = "ListKostum";
+                request.setAttribute("message", message);
+                request.setAttribute("page", page);
+                requestDispatcher.forward(request, response);
+            }
+            else{
+              RequestDispatcher requestDispatcher =
+                    request.getRequestDispatcher("/error_page.jsp");
+            message = "Kostum sudah ditambahkan sebelumnya, silahkan kostum lainnya ";
+            request.setAttribute("message", message);
+            requestDispatcher.forward(request, response);
+            }
+        
+//        return "daftarkostuminfo.jsp";
     }
 
     /** 
@@ -51,14 +85,10 @@ public class TambahKostum extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        RequestDispatcher dis = null;
+   
 
-        dis = request.getRequestDispatcher(this.addCostume(request));
-        dis.forward(request, response);
+//        dis = request.getRequestDispatcher(this.addCostume(request));
+//        dis.forward(request, response);
 
     }
 
