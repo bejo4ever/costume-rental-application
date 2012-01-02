@@ -4,12 +4,9 @@
  */
 package servlet;
 
-import entity.Pelanggan;
-import entity.DaftarPelanggan;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,8 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author a
  */
-@WebServlet(name = "register", urlPatterns = {"/register"})
-public class Register extends HttpServlet {
+public class EditKostum extends HttpServlet {
 
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -33,14 +29,16 @@ public class Register extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            Pelanggan user = new Pelanggan();
-            DaftarPelanggan dp = new DaftarPelanggan();
-            user.setUsername(username);
-            user.setPassword(password);
-            dp.create(user);
-            
+            /* TODO output your page here
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet EditKostum</title>");  
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet EditKostum at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+             */
         } finally {            
             out.close();
         }

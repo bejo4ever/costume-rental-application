@@ -100,7 +100,9 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       PrintWriter out = response.getWriter();
+       RequestDispatcher dis = request.getRequestDispatcher("HomeLogin.jsp");
+       dis.include(request, response);
     }
 
     /** 
