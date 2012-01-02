@@ -12,7 +12,7 @@ import javax.persistence.Id;
 
 /**
  *
- * @author Denia
+ * @author Deela_abeezzS=
  */
 @Entity
 public class Pelanggan implements Serializable {
