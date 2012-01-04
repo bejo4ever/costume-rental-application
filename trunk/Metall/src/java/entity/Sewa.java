@@ -25,6 +25,7 @@ public class Sewa implements Serializable {
     private String tanggal_sewa;
     private String tanggal_kembali;
     private int total_harga_barang;
+    private int denda;
    
     
    public int getTotal_Harga_barang(){
@@ -65,7 +66,13 @@ public class Sewa implements Serializable {
     public void setTanggal_kembali(String tanggal_kembali) {
         this.tanggal_kembali = tanggal_kembali;
     }
-   
+     public int getDenda(){
+        return denda;
+    }
+    public void setDenda(int denda) {
+        this.denda = denda;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
