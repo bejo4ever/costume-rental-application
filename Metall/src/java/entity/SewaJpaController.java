@@ -16,7 +16,7 @@ import javax.persistence.criteria.Root;
 
 /**
  *
- * @author a
+ * @author Rifanda Putri
  */
 public class SewaJpaController implements Serializable {
 
