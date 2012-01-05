@@ -159,7 +159,7 @@ public class DaftarPelanggan {
 /**
      * @param user Pelanggan entity
      *
-     * method untuk menambahkan data pengguna baru ke dalam tabel users
+     * method untuk menambahkan data pengguna baru ke dalam tabel pelanggan
      */
     public void addPelanggan(Pelanggan pelanggan) {
         EntityManager em = getEntityManager();
@@ -234,12 +234,12 @@ public class DaftarPelanggan {
     }
 
     /**
-     * @return List<User>
+     * @return List<Pelanggan>
      *
      * method untuk menampilkan list/daftar pengguna yang belum
      * dikonfirmasi dari tabel Pelanggan
      */
-    public List<Pelanggan> getUnconfirmedUsers() {
+    public List<Pelanggan> getUnconfirmedPlgn() {
         List<Pelanggan> plgn = new ArrayList<Pelanggan>();
         int stat = 0;
         EntityManager em = getEntityManager();
