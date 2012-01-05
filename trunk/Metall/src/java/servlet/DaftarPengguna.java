@@ -47,23 +47,23 @@ public class DaftarPengguna extends HttpServlet {
                     List<Pelanggan> plgn = dp.getPlgn();
                     request.setAttribute("pelanggan", plgn);
                     //diarahkan ke halaman daftar pelanggan
-                    dis = request.getRequestDispatcher("daftarpelanggan.jsp");
+                    dis = request.getRequestDispatcher("/DaftarPelanggan.jsp");
                     dis.include(request, response);
-        try {
-            /* TODO output your page here
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet DaftarPengguna</title>");  
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet DaftarPengguna at " + request.getContextPath () + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-             */
-        } finally {            
-            out.close();
-        //}
-    }}}}
+//        try {
+//            /* TODO output your page here
+//            out.println("<html>");
+//            out.println("<head>");
+//            out.println("<title>Servlet DaftarPengguna</title>");  
+//            out.println("</head>");
+//            out.println("<body>");
+//            out.println("<h1>Servlet DaftarPengguna at " + request.getContextPath () + "</h1>");
+//            out.println("</body>");
+//            out.println("</html>");
+//             */
+//        } finally {            
+//            out.close();
+//        //}
+    }}}
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
