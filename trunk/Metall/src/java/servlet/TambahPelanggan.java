@@ -8,17 +8,19 @@ import entity.Pelanggan;
 import entity.DaftarPelanggan;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+//import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author aQuWh iMoEtZ >,<
  */
-@WebServlet(name = "TambahPelanggan", urlPatterns = {"/tambahpelanggan"})
+//@WebServlet(name = "TambahPelanggan", urlPatterns = {"/tambahpelanggan"})
 public class TambahPelanggan extends HttpServlet {
 
     /** 
@@ -32,20 +34,24 @@ public class TambahPelanggan extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        try {
+        RequestDispatcher dis = null;
+        String message = null;
+        HttpSession session = request.getSession();
+        
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             String nama_pelanggan = request.getParameter("nama_pelanggan");
             String alamat_pelanggan = request.getParameter("alamat_pelanggan");
-            int telepon_pelanggan = Integer.parseInt(request.getParameter("telepon_kostum"));
-            Pelanggan user = new Pelanggan();
+            String telepon_pelanggan = request.getParameter("telepon_kostum");
+            int tipe = Integer.parseInt(request.getParameter("tipe"));
+            Pelanggan pelanggan = new Pelanggan();
             DaftarPelanggan dp = new DaftarPelanggan();
-            user.setUsername(username);
-            user.setPassword(password);
-            user.setNama_pelanggan(nama_pelanggan);
-            user.setAlamat_pelanggan(alamat_pelanggan);
-            user.setTelpon_pelanggan(telepon_pelanggan);
-            dp.create(user);
+            pelanggan.setUsername(username);
+            pelanggan.setPassword(password);
+            pelanggan.setNama_pelanggan(nama_pelanggan);
+            pelanggan.setAlamat_pelanggan(alamat_pelanggan);
+            pelanggan.setTelpon_pelanggan(telepon_pelanggan);
+            dp.addPelanggan(pelanggan);
             
         } finally {            
             out.close();
