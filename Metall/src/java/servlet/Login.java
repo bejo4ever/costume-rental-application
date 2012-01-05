@@ -40,70 +40,57 @@ public class Login extends HttpServlet {
         RequestDispatcher dis = null;
         DaftarPelanggan daftarPelanggan = new DaftarPelanggan();
         String message = null;
-       
-        
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            Pelanggan pelanggan = daftarPelanggan.getPelanggan(username,password);
-           // Pelanggan user = new Pelanggan();
-            // DaftarPelanggan dp = new DaftarPelanggan();
-            //pelanggan.setUsername(username);
-            //pelanggan.setPassword(password);
-            
-            //Kondisi jika username dan password ada yang tidak diisi
-             if (username.equals("") || password.equals("") ) {
+
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        Pelanggan plgn = daftarPelanggan.getPelanggan(username, password);
+
+        //Kondisi jika username dan password ada yang tidak diisi
+        try{
+        if (username.equals("") || password.equals("")) {
             RequestDispatcher requestDispatcher =
-                request.getRequestDispatcher("HomeLogin.jsp");
-                message ="Username dan password harus diisi!";
+                    request.getRequestDispatcher("/error_login.jsp");
+            message = "Username dan password harus diisi!";
+            request.setAttribute("message", message);
+            requestDispatcher.forward(request, response);
+        } else {
+            if (plgn != null) {
+                session.setAttribute("sessionusername", username);
+                if (plgn.getTipe() == 0) {
+                    request.setAttribute("user", plgn);
+                    dis = request.getRequestDispatcher("/HomeAdmin.jsp");
+                    dis.include(request, response);
+                } else if (plgn.getTipe() == 1) {
+                    request.setAttribute("user", plgn);
+                    dis = request.getRequestDispatcher("/HomePelanggan.jsp");
+                    dis.include(request, response);
+                }
+                else{
+                      RequestDispatcher requestDispatcher =
+                            request.getRequestDispatcher("/error_page.jsp");
+                    message ="Maaf, pendaftaran Anda belum dikonfirmasi!";
+                    request.setAttribute("message", message);
+                    requestDispatcher.forward(request, response);
+                }
+                }
+                else {
+                RequestDispatcher requestDispatcher =
+                        request.getRequestDispatcher("/error_login.jsp");
+                message = "Username atau Password yang anda masukkan tidak cocok!";
                 request.setAttribute("message", message);
                 requestDispatcher.forward(request, response);
         }
-              else{
-            if (pelanggan != null) {
-                    session.setAttribute("sessionusername", username);
-                    if (pelanggan.getTipe() == 0) {
-                        request.setAttribute("user", username);
-                        dis = request.getRequestDispatcher("HapusKostum_HomeAdmin.jsp");
-                        dis.forward(request, response);
-                    }
-                    else if(pelanggan.getTipe() == 1) {
-                        request.setAttribute("user", username);
-                        dis = request.getRequestDispatcher("HomePelanggan.jsp");
-                        dis.forward(request, response);
-                    }
-                    /* else{
-                        request.setAttribute("user", username);
-                        dis = request.getRequestDispatcher("Login.jsp");
-                        dis.forward(request, response);
-                    }*/
-                    
-                    
         }
-        else {
-            RequestDispatcher requestDispatcher =
-                    request.getRequestDispatcher("/error_login.jsp");
-                    message ="Username atau Password yang anda masukkan tidak cocok!";
-                    request.setAttribute("message", message);
-                    requestDispatcher.forward(request, response);
-        }}
-    }
-             
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /** 
-     * Handles the HTTP <code>GET</code> method.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+        }
+    catch (NullPointerException npe){
+    response.sendRedirect("../Login/");
+    
+    }}
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       PrintWriter out = response.getWriter();
-       RequestDispatcher dis = request.getRequestDispatcher("HomeLogin.jsp");
-       dis.include(request, response);
-    }
+        processRequest(request, response);
+ }
 
     /** 
      * Handles the HTTP <code>POST</code> method.
@@ -116,7 +103,7 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-    }
+}
 
     /** 
      * Returns a short description of the servlet.
@@ -125,5 +112,4 @@ public class Login extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
-}
+    }}
