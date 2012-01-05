@@ -6,9 +6,11 @@ package entity;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import java.util.Date;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -19,20 +21,36 @@ public class Sewa implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id_kostum;
     private Long id;
+    private Long id_sewa;
     private String username;
     private String kode_barang;
-    private String tanggal_sewa;
-    private String tanggal_kembali;
-    private int total_harga_barang;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date sewa;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date kembali;
+    private int total_harga;
     private int denda;
    
     
-   public int getTotal_Harga_barang(){
-        return total_harga_barang;
+   public int getTotal_Harga(){
+        return total_harga;
     }
-    public void setTotal_Harga_barang(int total_harga_barang) {
-        this.total_harga_barang = total_harga_barang;
+    public void setTotal_Harga(int total_harga) {
+        this.total_harga = total_harga;
+    }
+    public Long getId_kostum() {
+        return id_kostum;
+    }
+    public void setId_kostum(Long id_kostum) {
+        this.id_kostum = id_kostum;
+    }
+    public Long getId_sewa() {
+        return id_sewa;
+    }
+    public void setId_sewa(Long id_sewa) {
+        this.id_sewa = id_sewa;
     }
     public Long getId() {
         return id;
@@ -54,17 +72,17 @@ public class Sewa implements Serializable {
     public void setKode_barang(String kode_barang) {
         this.kode_barang = kode_barang;
     }
-    public String getTanggal_sewa() {
-        return tanggal_sewa;
+    public Date getSewa() {
+        return sewa;
     }
-    public void setTanggal_sewa(String tanggal_sewa) {
-        this.tanggal_sewa = tanggal_sewa;
+    public void setSewa(Date sewa) {
+        this.sewa = sewa;
     }
-    public String getTanggal_kembali() {
-        return tanggal_kembali;
+    public Date getKembali() {
+        return kembali;
     }
-    public void setTanggal_kembali(String tanggal_kembali) {
-        this.tanggal_kembali = tanggal_kembali;
+    public void setKembali(Date kembali) {
+        this.kembali = kembali;
     }
      public int getDenda(){
         return denda;
@@ -76,7 +94,7 @@ public class Sewa implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (id_sewa != null ? id_sewa.hashCode() : 0);
         return hash;
     }
 
@@ -87,7 +105,7 @@ public class Sewa implements Serializable {
             return false;
         }
         Sewa other = (Sewa) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.id_sewa == null && other.id_sewa != null) || (this.id_sewa != null && !this.id_sewa.equals(other.id_sewa))) {
             return false;
         }
         return true;
@@ -95,7 +113,7 @@ public class Sewa implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Sewa[ id=" + id + " ]";
+        return "entity.Sewa[ id_sewa=" + id_sewa + " ]";
     }
     
 }
