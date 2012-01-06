@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+//import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author a
  */
-@WebServlet(name = "EditPelanggan", urlPatterns = {"/editpelanggan"})
+//@WebServlet(name = "EditPelanggan", urlPatterns = {"/editpelanggan"})
 public class EditPelanggan extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
@@ -33,16 +33,16 @@ public class EditPelanggan extends HttpServlet {
         String alamat_pelanggan = request.getParameter("alamat_pelanggan");
         String telpon_pelanggan = request.getParameter("telpon_pelanggan");
         
-        Pelanggan p = new Pelanggan();
+        Pelanggan pelanggan = new Pelanggan();
         DaftarPelanggan dp = new DaftarPelanggan();
-        p = dp.getPelangganFromName(username);
+        pelanggan = dp.getPelangganFromName(username);
 
-        p.setUsername(username);
-        p.setPassword(password);
-        p.setNama_pelanggan(nama_pelanggan);
-        p.setAlamat_pelanggan(alamat_pelanggan);
-        p.setTelpon_pelanggan(telpon_pelanggan);
-        request.setAttribute("pengguna", p);
+        pelanggan.setUsername(username);
+        pelanggan.setPassword(password);
+        pelanggan.setNama_pelanggan(nama_pelanggan);
+        pelanggan.setAlamat_pelanggan(alamat_pelanggan);
+        pelanggan.setTelpon_pelanggan(telpon_pelanggan);
+        request.setAttribute("pengguna", pelanggan);
         
         try {
         if (nama_pelanggan.equals("") || alamat_pelanggan.equals("") || telpon_pelanggan.equals("")
@@ -53,19 +53,19 @@ public class EditPelanggan extends HttpServlet {
                 request.setAttribute("message", message);
                 requestDispatcher.forward(request, response);
             } else {
-                if (p.getPassword() != password) {
+                if (pelanggan.getPassword() != password) {
                     RequestDispatcher requestDispatcher =
                             request.getRequestDispatcher("/error_page.jsp");
                     message = "Password Salah";
                     request.setAttribute("message", message);
                     requestDispatcher.forward(request, response);
                 } else {
-                    dp.editPelanggan(p);
+                    dp.editPelanggan(pelanggan);
                     List<Pelanggan> plgn = dp.getPlgn();
                     request.setAttribute("pengguna", plgn);
                     //diarahkan ke halaman profil penyewa tempat
                      RequestDispatcher requestDispatcher =
-                        request.getRequestDispatcher("/successUpdating.jsp");
+                        request.getRequestDispatcher("/SuccessUpdating.jsp");
                 message = "Data Pengguna berhasil diubah";
                 String page = "DaftarPengguna";
                 request.setAttribute("message", message);
