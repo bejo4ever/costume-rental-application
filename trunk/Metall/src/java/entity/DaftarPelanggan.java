@@ -5,7 +5,7 @@
 package entity;
 
 import entity.exceptions.NonexistentEntityException;
-import java.io.Serializable;
+//import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -13,8 +13,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Root;
+//import javax.persistence.criteria.CriteriaQuery;
+//import javax.persistence.criteria.Root;
 
 /**
  *
@@ -224,14 +224,16 @@ public class DaftarPelanggan {
             }
             em.remove(pelanggan);
             em.getTransaction().commit();
-        } catch (Exception e) {
-            em.getTransaction().rollback();
-        } finally {
+        } 
+        //catch (Exception e) {
+           // em.getTransaction().rollback();
+        //} 
+        finally {
             if (em != null) {
                 em.close();
             }
         }
-    }
+    }}
 
     /**
      * @return List<Pelanggan>
@@ -239,17 +241,17 @@ public class DaftarPelanggan {
      * method untuk menampilkan list/daftar pengguna yang belum
      * dikonfirmasi dari tabel Pelanggan
      */
-    public List<Pelanggan> getUnconfirmedPlgn() {
-        List<Pelanggan> plgn = new ArrayList<Pelanggan>();
-        int stat = 0;
-        EntityManager em = getEntityManager();
-        try {
-            Query q = em.createQuery("SELECT object(o) FROM Pelanggan AS o WHERE o.status=:stat");
-            q.setParameter("status", stat);
-            List plgn1 = q.getResultList();
-
-        } finally {
-            em.close();
-        }
-        return plgn;
-    }}
+//    public List<Pelanggan> getUnconfirmedPlgn() {
+//        List<Pelanggan> plgn = new ArrayList<Pelanggan>();
+//        int stat = 0;
+//        EntityManager em = getEntityManager();
+//        try {
+//            Query q = em.createQuery("SELECT object(o) FROM Pelanggan AS o WHERE o.status=:stat");
+//            q.setParameter("status", stat);
+//            List plgn1 = q.getResultList();
+//
+//        } finally {
+//            em.close();
+//        }
+//        return plgn;
+//    }}
