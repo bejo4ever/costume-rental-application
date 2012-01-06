@@ -26,7 +26,7 @@ public class Pelanggan implements Serializable {
     private String alamat_pelanggan;
     private String telpon_pelanggan;
     private int tipe;
-    private int status;
+    //private int status;
     
     public Long getId() {
         return id;
@@ -36,13 +36,13 @@ public class Pelanggan implements Serializable {
         this.id = id;
     }
 
-    public int getStatus(){
-        return status;
-    }
-    
-    public void setStatus(int status){
-        this.status = status;
-    }
+//    public int getStatus(){
+//        return status;
+//    }
+//    
+//    public void setStatus(int status){
+//        this.status = status;
+//    }
     
     public String getTelpon_pelanggan(){
         return telpon_pelanggan;
