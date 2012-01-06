@@ -8,6 +8,7 @@ import entity.Pelanggan;
 import entity.DaftarPelanggan;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 //import javax.servlet.annotation.WebServlet;
@@ -42,19 +43,50 @@ public class TambahPelanggan extends HttpServlet {
             String password = request.getParameter("password");
             String nama_pelanggan = request.getParameter("nama_pelanggan");
             String alamat_pelanggan = request.getParameter("alamat_pelanggan");
-            String telepon_pelanggan = request.getParameter("telepon_kostum");
-            int tipe = Integer.parseInt(request.getParameter("tipe"));
+            String telpon_pelanggan = request.getParameter("telpon_pelanggan");
+            //int tipe = Integer.parseInt(request.getParameter("tipe"));
+            
             Pelanggan pelanggan = new Pelanggan();
             DaftarPelanggan dp = new DaftarPelanggan();
+            RequestDispatcher requestDispatcher = null;
+            
+    
+            if (username.equals("") || password.equals("") || nama_pelanggan.equals("")
+                || alamat_pelanggan.equals("") || telpon_pelanggan.equals("")) {
+            requestDispatcher =
+                request.getRequestDispatcher("/error_page.jsp");
+                message ="Data tidak lengkap, isi semua field dengan tanda (*) ";
+                request.setAttribute("message", message);
+                requestDispatcher.forward(request, response);
+        }
+        else{
+            boolean hasilCheck = dp.checkPelanggan(username);
+            if (!hasilCheck) {
             pelanggan.setUsername(username);
             pelanggan.setPassword(password);
             pelanggan.setNama_pelanggan(nama_pelanggan);
             pelanggan.setAlamat_pelanggan(alamat_pelanggan);
-            pelanggan.setTelpon_pelanggan(telepon_pelanggan);
+            pelanggan.setTelpon_pelanggan(telpon_pelanggan);
+            //pelanggan.setTipe(tipe);
+           
             dp.addPelanggan(pelanggan);
-            
-        } finally {            
-            out.close();
+            List<Pelanggan> plgn = dp.getPlgn();
+            request.setAttribute("pengguna", plgn);
+             //diarahkan ke halaman daftar pelanggan
+            requestDispatcher =
+                        request.getRequestDispatcher("/SuccessSaving.jsp");
+                message = "Pelanggan baru berhasil ditambahkan.";
+                String page = "DaftarPelanggan";
+                request.setAttribute("message", message);
+                request.setAttribute("page", page);
+                requestDispatcher.forward(request, response);
+            } else {
+                message ="Data Anda Berhasil Ditambahkan ";
+                request.setAttribute("message", message);
+                requestDispatcher = request.getRequestDispatcher("/SuccessSaving.jsp");
+                    requestDispatcher.forward(request, response);
+            }
+
         }
     }
 
@@ -69,7 +101,19 @@ public class TambahPelanggan extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        PrintWriter out = response.getWriter();
+        RequestDispatcher dis = null;
+        HttpSession session = request.getSession();
+        DaftarPelanggan dp = new DaftarPelanggan();
+        Pelanggan pelanggan = new Pelanggan();
+
+        //mengambil parameter yang sudah dikirim dari halaman daftarPengguna.jsp
+
+       
+        //diarahkan ke halaman profil penyewa tempat
+        dis = request.getRequestDispatcher("/TambahPelanggan.jsp");
+        dis.include(request, response);
+
     }
 
     /** 
@@ -93,4 +137,4 @@ public class TambahPelanggan extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-}
+    }
