@@ -57,11 +57,11 @@ public class Login extends HttpServlet {
             if (plgn != null) {
                 session.setAttribute("sessionusername", username);
                 if (plgn.getTipe() == 0) {
-                    request.setAttribute("user", plgn);
+                    request.setAttribute("pelanggan", plgn);
                     dis = request.getRequestDispatcher("/HomeAdmin.jsp");
                     dis.include(request, response);
                 } else if (plgn.getTipe() == 1) {
-                    request.setAttribute("user", plgn);
+                    request.setAttribute("pelanggan", plgn);
                     dis = request.getRequestDispatcher("/HomePelanggan.jsp");
                     dis.include(request, response);
                 }
