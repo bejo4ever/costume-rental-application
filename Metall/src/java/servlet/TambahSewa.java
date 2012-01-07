@@ -5,9 +5,9 @@
 package servlet;
 
 import entity.DaftarSewa;
-import entity.DaftarPelanggan;
 import entity.Sewa;
-import entity.Pelanggan;
+import entity.DaftarUser;
+import entity.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
@@ -41,17 +41,16 @@ public class TambahSewa extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 	RequestDispatcher dis = null;
- 
-        DaftarPelanggan dp = new DaftarPelanggan();
-        Pelanggan p = new Pelanggan();
-	HttpSession session = request.getSession();
         DaftarSewa ds = new DaftarSewa();
 	Sewa s = new Sewa();
+        HttpSession session = request.getSession();
+        DaftarUser du = new DaftarUser();
+	User u = new User();
         String message = null;
 
         //getting parameter from input
-        String username = (String) session.getAttribute("sessionpelanggan");
-        p = dp.getPelangganFromName(username);
+        String username = (String) session.getAttribute("sessionusername");
+        u = du.getUserFromName(username);
         String usernamee = request.getParameter("username");
         String kodee_kostum = request.getParameter("kode_kostum");
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
