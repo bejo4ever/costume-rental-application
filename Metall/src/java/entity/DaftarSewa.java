@@ -11,13 +11,12 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
-import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
 
 /**
  *
- * @author a
+ * @author Rifanda Putri
  */
 public class DaftarSewa implements Serializable {
 
@@ -28,6 +27,38 @@ public class DaftarSewa implements Serializable {
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
+    }
+    
+    public boolean checkSewa(String username, Long id_sewa ) {
+        boolean result = false;
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createQuery("SELECT count(o) FROM Sewa AS o WHERE o.username=:username AND o.id_sewa=:id_sewa");
+            q.setParameter("username", username);
+            q.setParameter("id_sewa", id_sewa);
+            int jumlahSewa = ((Long) q.getSingleResult()).intValue();
+            if (jumlahSewa > 0) {
+                result = true;
+            }
+        } finally {
+            em.close();
+        }
+        return result;
+    }
+    
+    public boolean cekSewa () {
+        boolean result = false;
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createQuery("SELECT count(o) FROM Sewa AS o");
+            int jumlahSewa = ((Long) q.getSingleResult()).intValue();
+            if (jumlahSewa > 0) {
+                result = true;
+            }
+        } finally {
+            em.close();
+        }
+        return result;
     }
     
     public void addSewa(Sewa sewa) {
@@ -42,55 +73,73 @@ public class DaftarSewa implements Serializable {
                 em.close();
             }
         }}
+    
+     // method untuk menampilkan list/daftar sewa dari username
+    public List<Sewa> getDaftarSewa() {
+        List<Sewa> daftarSewa = new ArrayList<Sewa>();
 
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createQuery("SELECT object(o) FROM Sewa AS o");
+            daftarSewa = q.getResultList();
+            // }
+
+        } finally {
+            em.close();
+        }
+        return daftarSewa;
+    }
+    
+      public List<Sewa> getDaftarSewa(Pelanggan username) {
+        List<Sewa> daftarSewa = new ArrayList<Sewa>();
+
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createQuery("SELECT object(o) FROM Sewa AS o");
+            daftarSewa = q.getResultList();
+            // }
+
+        } finally {
+            em.close();
+        }
+        return daftarSewa;
+    }
+    
+//method untuk mengfungsikan tombol edit
    public void editSewa(Sewa sewa) {
         EntityManager em = getEntityManager();
         em.getTransaction().begin();
-        try {
+        try { //jik tdk ada error
             em.merge(sewa);
             em.getTransaction().commit();
-        } catch (Exception e){
+        } catch (Exception e) {//jk eerror
             em.getTransaction().rollback();
-        }finally {
+        } finally {
             em.close();
         }
     }
-
-    public void destroy(Long id_sewa) throws NonexistentEntityException {
-        EntityManager em = null;
+   
+   //method untuk mengfungsikan tombol hapus
+   public void deleteSewa(Sewa username) throws NonexistentEntityException {
+        EntityManager em = getEntityManager();
+        em.getTransaction().begin();
         try {
-            em = getEntityManager();
-            em.getTransaction().begin();
-            Sewa sewa;
+            Sewa Sewa;
             try {
-                sewa = em.getReference(Sewa.class, id_sewa);
-                sewa.getId_sewa();
+                Sewa = em.find(Sewa.class, username);
             } catch (EntityNotFoundException enfe) {
-                throw new NonexistentEntityException("The sewa with id_sewa " + id_sewa + " no longer exists.", enfe);
+                throw new NonexistentEntityException("The Sewa with id " + username + " no longer exists.", enfe);
             }
-            em.remove(sewa);
+            em.remove(Sewa);
             em.getTransaction().commit();
+        } catch (Exception e) {
+            em.getTransaction().rollback();
         } finally {
             if (em != null) {
                 em.close();
             }
         }
-    }
-    // method untuk menampilkan list/daftar sewa dari tabel sewa
-     
-    public List<Sewa> getDaftarSewa() {
-        List<Sewa> daftar_sewa = new ArrayList<Sewa>();
 
-        EntityManager em = getEntityManager();
-        try {
-            Query q = em.createQuery("SELECT object(o) FROM sewa AS o");
-            daftar_sewa = q.getResultList();
-        } finally {
-            em.close();
+    }
+   
         }
-        return daftar_sewa;
-    }
-
-    //method untuk mengambil data satu pengguna pada tabel User
-     //berdasarkan parameter username   
-}
