@@ -6,6 +6,10 @@ package servlet;
 
 import entity.DaftarSewa;
 import entity.Sewa;
+import entity.DaftarPelanggan;
+import entity.Pelanggan;
+import entity.DaftarUser;
+import entity.User;
 import entity.exceptions.NonexistentEntityException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -48,14 +52,13 @@ public class HapusSewa extends HttpServlet {
         HttpSession session = request.getSession();
 
         ds.deleteSewa(id_sewa);
+        
         //kurang delete bdasarkan username
 
         RequestDispatcher requestDispatcher =
                 request.getRequestDispatcher("ListSewa");
         requestDispatcher.forward(request, response);
-        
-        
-        
+          
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
