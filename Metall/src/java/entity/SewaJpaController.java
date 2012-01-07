@@ -53,7 +53,7 @@ public class SewaJpaController implements Serializable {
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
             if (msg == null || msg.length() == 0) {
-                Long id = sewa.getId();
+                Long id = sewa.getId_kostum();
                 if (findSewa(id) == null) {
                     throw new NonexistentEntityException("The sewa with id " + id + " no longer exists.");
                 }
@@ -74,7 +74,7 @@ public class SewaJpaController implements Serializable {
             Sewa sewa;
             try {
                 sewa = em.getReference(Sewa.class, id);
-                sewa.getId();
+                sewa.getId_kostum();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The sewa with id " + id + " no longer exists.", enfe);
             }
