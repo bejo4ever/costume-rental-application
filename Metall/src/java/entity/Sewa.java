@@ -14,7 +14,7 @@ import javax.persistence.Temporal;
 
 /**
  *
- * @author a
+ * @author Rifanda Putri
  */
 @Entity
 public class Sewa implements Serializable {
@@ -25,20 +25,20 @@ public class Sewa implements Serializable {
     private Long id;
     private Long id_sewa;
     private String username;
-    private String kode_barang;
+    private String kode_kostum;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date sewa;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date kembali;
-    private int total_harga;
+    private int harga_total;
     private int denda;
    
     
-   public int getTotal_Harga(){
-        return total_harga;
+   public int getHarga_total(){
+        return harga_total;
     }
-    public void setTotal_Harga(int total_harga) {
-        this.total_harga = total_harga;
+    public void setHarga_total(int harga_total) {
+        this.harga_total = harga_total;
     }
     public Long getId_kostum() {
         return id_kostum;
@@ -66,11 +66,11 @@ public class Sewa implements Serializable {
         this.username = username;
     }
     
-     public String getKode_barang() {
-        return kode_barang;
+     public String getKode_kostum() {
+        return kode_kostum;
     }
-    public void setKode_barang(String kode_barang) {
-        this.kode_barang = kode_barang;
+    public void setKode_kostum(String kode_kostum) {
+        this.kode_kostum = kode_kostum;
     }
     public Date getSewa() {
         return sewa;
