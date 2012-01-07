@@ -104,6 +104,35 @@ public class DaftarSewa implements Serializable {
         }
         return daftarSewa;
     }
+      
+      public List<Sewa> getDaftarSewa(long id_sewa) {
+        List<Sewa> daftarSewa = new ArrayList<Sewa>();
+        int stat = 0;
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createQuery("SELECT object(o) FROM Sewa AS o WHERE o.id_sewa=:id_sewa");
+            q.setParameter("id_sewa", id_sewa);
+            daftarSewa = q.getResultList();
+
+        } finally {
+            em.close();
+        }
+        return daftarSewa;
+    }
+
+    public Sewa getSewa(long id_sewa) {
+        Sewa sewa = null;
+        EntityManager em = getEntityManager();
+        try {
+            Query q = em.createQuery("SELECT object(o) FROM Sewa AS o WHERE o.id_sewa=:id_sewa");
+            q.setParameter("id_sewa", id_sewa);
+            sewa = (Sewa) q.getSingleResult();
+
+        } finally {
+            em.close();
+        }
+        return sewa;
+    }
     
 //method untuk mengfungsikan tombol edit
    public void editSewa(Sewa sewa) {
@@ -142,4 +171,25 @@ public class DaftarSewa implements Serializable {
 
     }
    
+   public void deleteSewa(long id_sewa) throws NonexistentEntityException {
+        EntityManager em = getEntityManager();
+        em.getTransaction().begin();
+        try {
+            Sewa Sewa;
+            try {
+                Sewa = em.find(Sewa.class, id_sewa);
+            } catch (EntityNotFoundException enfe) {
+                throw new NonexistentEntityException("The Sewa with id " + id_sewa + " no longer exists.", enfe);
+            }
+            em.remove(Sewa);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+        } finally {
+            if (em != null) {
+                em.close();
+            }
+        }
+
+    }
         }
