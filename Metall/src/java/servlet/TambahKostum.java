@@ -60,8 +60,8 @@ public class TambahKostum extends HttpServlet {
 
         dk.addKostum(kostum);
         RequestDispatcher requestDispatcher =
-                        request.getRequestDispatcher("/successSaving.jsp");
-                message = "Kostum berhasil ditambahkan";
+                        request.getRequestDispatcher("/view_sukses.jsp");
+                message = "Data kostum berhasil ditambahkan";
                 page = "ListKostum";
                 request.setAttribute("message", message);
                 request.setAttribute("page", page);
@@ -70,28 +70,23 @@ public class TambahKostum extends HttpServlet {
             else{
               RequestDispatcher requestDispatcher =
                     request.getRequestDispatcher("/error_page.jsp");
-            message = "Kostum sudah ditambahkan sebelumnya, silahkan kostum lainnya ";
+            message = "data kostum ini sudah ditambahkan sebelumnya.";
             request.setAttribute("message", message);
             requestDispatcher.forward(request, response);
             }
-        
-//        return "daftarkostuminfo.jsp";
     }
 
-    /** 
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    }
+@Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String destination = "/DaftarKostum.jsp";
+
+        RequestDispatcher rd = getServletContext().getRequestDispatcher(destination);
+        rd.forward(request, response);
+    }
    
-
-//        dis = request.getRequestDispatcher(this.addCostume(request));
-//        dis.forward(request, response);
-
-    }
-
+   
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
      * Handles the HTTP <code>GET</code> method.
@@ -100,11 +95,6 @@ public class TambahKostum extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
 
     /** 
      * Handles the HTTP <code>POST</code> method.
