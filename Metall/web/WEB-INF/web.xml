@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <servlet>
+        <servlet-name>HapusSewa</servlet-name>
+        <servlet-class>servlet.HapusSewa</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditSewa</servlet-name>
+        <servlet-class>servlet.EditSewa</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TambahSewa</servlet-name>
+        <servlet-class>servlet.TambahSewa</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ListSewa</servlet-name>
+        <servlet-class>servlet.ListSewa</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HapusSewa</servlet-name>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditSewa</servlet-name>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TambahSewa</servlet-name>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ListSewa</servlet-name>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>HomePelanggan.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>
