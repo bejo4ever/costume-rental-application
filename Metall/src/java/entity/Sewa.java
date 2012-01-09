@@ -31,8 +31,6 @@ public class Sewa implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date kembali;
     private int harga_total;
-    private int denda;
-   
     
    public int getHarga_total(){
         return harga_total;
@@ -84,13 +82,7 @@ public class Sewa implements Serializable {
     public void setKembali(Date kembali) {
         this.kembali = kembali;
     }
-     public int getDenda(){
-        return denda;
-    }
-    public void setDenda(int denda) {
-        this.denda = denda;
-    }
-    
+   
     @Override
     public int hashCode() {
         int hash = 0;
