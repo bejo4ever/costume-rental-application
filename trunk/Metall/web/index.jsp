@@ -385,7 +385,7 @@ body {
                                 <p>&nbsp;</p>
                                 <p>&nbsp;</p>
                                 <p>Klik untuk menyewa kostum :</p>
-                                <p><a href="TambahSewa.jsp">
+                                <p><a href="DaftarSewaHapus.jsp">
                                   <input type="submit" name="Enter4" value="SEWA KOSTUM" class="button_submit">
                                 </a></p>
                                 <p>&nbsp;</p>
