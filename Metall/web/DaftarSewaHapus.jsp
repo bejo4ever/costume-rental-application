@@ -19,7 +19,13 @@
 <link rel="shortcut icon" href="">
 <SCRIPT src="anim.js"></SCRIPT>
 
-</head>
+<style type="text/css">
+<!--
+body {
+	background-color: #39F;
+}
+-->
+</style></head>
 
 <body>
 
@@ -42,32 +48,21 @@
                         </tr>
                     </table>
             	</td>-->
-            	<td width=897><img src="headban/logohead.png" width=896 height=254 ></td>
+            	<td width=897>&nbsp;</td>
 
             </tr>
      	<table>
-   </td> 
     <td align="right"><a href="#">Logout</a></tr>
-    <a href="#">Logout</a>
-  
  
-  <tr align="right"></tr>
-    <a href="#">Logout</a>
-  
 <tr>
 	<td align="center" bgcolor="#99CC99"><table width="690" border="0" cellpadding="0" cellspacing="0" >
 
         <tr class='menu'>
           <td align="center" class="text_putih">
-            <a class="klikmenu" href="index.php">Daftar Kostum</a>&nbsp;|&nbsp;	
+            <a class="klikmenu" href="index.php"><strong>Kostum</strong></a><strong>&nbsp;|&nbsp;	
             <a class="klikmenu" href="cara.php">Toko</a>&nbsp;|&nbsp;
             <a class="klikmenu" href="tanya.php">Pelanggan</a>&nbsp;|&nbsp;
-            <a class="klikmenu" href="prosespay.php">Sewa Kostum</a>&nbsp;|&nbsp;
-            <a class="klikmenu" href="prosespay.php">Pengingat</a>&nbsp;|&nbsp;
-            
-
-                   
-		</td></tr>
+            <a class="klikmenu" href="prosespay.php">Sewa Kostum</a></strong></td></tr>
     </table>
 </td>
 </tr>		
@@ -88,26 +83,28 @@
             </center></td>
           </tr>
           <tr>
-            <td ><a href="#"></a></td>
+            <td >&nbsp;</td>
           </tr>
           <tr>
-            <td colspan="2"><table width="596" height="324" border="0">
+            <td colspan="2"><table width="599" height="225" border="1">
               <tr>
-                <td width="71" align="center">Username</td>
-                <td width="92" align="center">Kode Kostum</td>
-                <td width="96" align="center">Tanggal Sewa </td>
-                <td width="110" align="center">Tanggal Kembali </td>
-                <td width="94" align="center">Total Harga Kostum </td>
+                <td width="56" align="center">ID Sewa</td>
+                <td width="64" align="center">Username</td>
+                <td width="91" align="center">Kode Kostum</td>
+                <td width="76" align="center">Tgl. Sewa </td>
+                <td width="89" align="center">Tgl. Kembali </td>
+                <td width="81" align="center">Total Harga</td>
                 <td colspan="2" align="center">Tindakan</td>
-                </tr>
+              </tr>
               <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td width="47" align="center"><a href="#">Edit</a></td>
-                <td width="56" align="center"><a href="#">Hapus</a></td>
+                <th scope="col">&nbsp;</th>
+                <th scope="col">&nbsp;</th>
+                <th scope="col">&nbsp;</th>
+                <th scope="col">&nbsp;</th>
+                <th scope="col">&nbsp;</th>
+                <th scope="col">&nbsp;</th>
+                <td align="center"><a href="EditDaftarSewa.jsp">Edit</a></td>
+                <td align="center"><a href="DaftarSewaHapus.jsp">Hapus</a></td>
               </tr>
               <tr>
                 <td>&nbsp;</td>
@@ -115,71 +112,61 @@
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
+                <td>&nbsp;</td>
                 <td align="center"><a href="#">Edit</a></td>
                 <td align="center"><a href="#">Hapus</a></td>
-                </tr>
+              </tr>
               <tr>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
+                <td>&nbsp;</td>
                 <td align="center"><a href="#">Edit</a></td>
                 <td align="center"><a href="#">Hapus</a></td>
-                </tr>
+              </tr>
               <tr>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
+                <td>&nbsp;</td>
                 <td align="center"><a href="#">Edit</a></td>
                 <td align="center"><a href="#">Hapus</a></td>
-                </tr>
+              </tr>
               <tr>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
-                <td align="center"><a href="#">Edit</a></td>
-                <td align="center"><a href="#">Hapus</a></td>
-                </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td align="center"><a href="#">Edit</a></td>
                 <td align="center"><a href="#">Hapus</a></td>
-                </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td align="center"><a href="#">Edit</a></td>
-                <td align="center"><a href="#">Hapus</a></td>
-                </tr>
+              </tr>
             </table></td>
           </tr>
           <tr>
-            <td width="60%" ><div align="right"><a href="#">Tambah Sewa </a></div></td>
+            <td width="60%" ><div align="right"></div></td>
             <td width="31%" ><div align="center"><a href="#">OK          </a></div></td>
 			<td width="9%" >&nbsp;</td>
           </tr>
           <tr>
             <td >&nbsp;</td>
-            <td ><div align="center"><a href="#">Denda</a></div></td>
+            <td ><div align="center"><a href="TambahSewa.jsp">Tambah Sewa </a></div></td>
           </tr>
           <tr> </tr>
         </table></td>
         <td width="159" colspan="2" rowspan="8" align="left" valign="top" class="kolom_kanan"><div id="kolom_kanan">
           <table width="100%">
             <tr>
-              <td class="detilkanan"><img src='kanant.gif' width=12 height=12 /><b class="text_biru" >&nbsp;Cari Username </b></td>
+              <td align="left" class="detilkanan"><blockquote>
+                <blockquote>
+                  <p><b class="text_biru" >CariBarang</b></p>
+                </blockquote>
+              </blockquote></td>
             </tr>
             <tr>
               <td style="padding-left:5px;">&nbsp;</td>
@@ -188,7 +175,7 @@
               <td><table class="tabel_kanan" width=100% cellspacing="1">
                 <form style="padding:0; margin:0;" name="formid" action="viewzoom.php" method="post">
                   <tr>
-                    <td align="center">Masukkan Username </td>
+                    <td align="center">Masukkan Masukkan Username atau ID Sewa: </td>
                   </tr>
                   <tr>
                     <td align="center"><input type="text" name="iditemf" size="20" maxlength="10" class="text_box_kanan" autocomplete="off" ></td>
