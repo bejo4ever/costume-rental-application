@@ -6,8 +6,8 @@ package servlet;
 
 import entity.DaftarSewa;
 import entity.Sewa;
-import entity.DaftarUser;
-import entity.User;
+import entity.DaftarPelanggan;
+import entity.Pelanggan;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
@@ -40,17 +40,19 @@ public class TambahSewa extends HttpServlet {
             throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-	RequestDispatcher dis = null;
+        RequestDispatcher dis = null;
         DaftarSewa ds = new DaftarSewa();
-	Sewa s = new Sewa();
+        Sewa s = new Sewa();
         HttpSession session = request.getSession();
-        DaftarUser du = new DaftarUser();
-	User u = new User();
+        DaftarPelanggan dp = new DaftarPelanggan();
+        Pelanggan p = new Pelanggan();
         String message = null;
 
         //getting parameter from input
         String username = (String) session.getAttribute("sessionusername");
-        u = du.getUserFromName(username);
+        p = dp.getPelangganFromName(username);
+        String temp_id_sewa = request.getParameter("id_sewa");
+        Long id_sewa = Long.parseLong(temp_id_sewa);
         String usernamee = request.getParameter("username");
         String kodee_kostum = request.getParameter("kode_kostum");
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -60,8 +62,8 @@ public class TambahSewa extends HttpServlet {
         String tgll_kembali = request.getParameter("tgl_kembali");
         String blnn_kembali = request.getParameter("bln_kembali");
         String thnn_kembali = request.getParameter("thn_kembali");
-        String hargaa_total = request.getParameter("harga_total");
-        String denda = request.getParameter("denda");
+        String temp_harga_total = request.getParameter("harga_total");
+       // String denda = request.getParameter("denda");
         String sewaa = thnn_sewa + "-" + blnn_sewa + "-" + tgll_sewa;
         String kembali = thnn_kembali + "-" + blnn_kembali + "-" + tgll_kembali;
         Date tgl_sewa = dateFormat.parse(sewaa);
@@ -70,8 +72,8 @@ public class TambahSewa extends HttpServlet {
 
         try {
             //first if --> Jika ada field bertanda bintang yang kosong (tidak diisi)
-            if (tgll_sewa.equals("") || blnn_sewa.equals("") || thnn_sewa.equals("")
-                    || tgll_kembali.equals("") || blnn_kembali.equals("") || thnn_kembali.equals("")||hargaa_total.equals("")) {
+            if (temp_id_sewa.equals("") || usernamee.equals("")|| kodee_kostum.equals ("")|| tgll_sewa.equals("") || blnn_sewa.equals("") || thnn_sewa.equals("")
+                    || tgll_kembali.equals("") || blnn_kembali.equals("") || thnn_kembali.equals("") || temp_harga_total.equals("")) {
                 RequestDispatcher requestDispatcher =
                         request.getRequestDispatcher("/error_page.jsp");
                 message = "Data tidak lengkap, isi semua kolom dengan tanda * ";
@@ -94,27 +96,22 @@ public class TambahSewa extends HttpServlet {
                     requestDispatcher.forward(request, response);
                 }//end of if
                 else {
-                    //adding sewa to database Sewa
+                    //adding sewa to database Sewa\
+                    s.setId_sewa(id_sewa);
                     s.setUsername(usernamee);
                     s.setKode_kostum(kodee_kostum);
                     s.setSewa(tgl_sewa);
                     s.setKembali(tgl_kembali);
-                    //kurang mengisi harga total
-                   // int Harga_total= kode_kostum;
-                    
-                    //calculate denda
-                    long milliseconds1 = c1.getTimeInMillis();
-                    long milliseconds2 = c2.getTimeInMillis();
-                    long diff = milliseconds2 - milliseconds1;
-                    int diffDays = (int) (diff / (24 * 60 * 60 * 1000));
-                    int Denda = 5000 * diffDays;
-                    int Harga_total = String kode_kostum ("kode_kostum")* diffDays;
-                    s.setHarga_total(Harga_total);
-                    s.setDenda(Denda);
-                    
+                   
+                    try {
+                        int harga_total = Integer.parseInt(temp_harga_total);
+                    s.setHarga_total(harga_total);
+                    } catch (NumberFormatException nfe) {
+                    }
+
                     ds.addSewa(s);
                     RequestDispatcher requestDispatcher =
-                      request.getRequestDispatcher("DaftarSewa.jsp");
+                            request.getRequestDispatcher("DaftarSewa.jsp");
                     message = "Data Sewa Berhasil ditambahkan";
                     request.setAttribute("message", message);
                     requestDispatcher.forward(request, response);
@@ -124,10 +121,8 @@ public class TambahSewa extends HttpServlet {
         }//end of try
         catch (Exception e) {
         }
-
     }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
      * Handles the HTTP <code>GET</code> method.
      * @param request servlet request
@@ -135,9 +130,9 @@ public class TambahSewa extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-  @Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         String destination = "/TambahSewa.jsp";
 
         RequestDispatcher rd = getServletContext().getRequestDispatcher(destination);
@@ -153,7 +148,7 @@ public class TambahSewa extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+            throws ServletException, IOException {
         try {
             processRequest(request, response);
         } catch (ParseException ex) {
