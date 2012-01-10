@@ -47,12 +47,7 @@ body {
             </tr>
      	<table>
     <td align="right"><a href="#">Logout</a></tr>
-    <a href="#">Logout</a>
-  
- 
-  <tr align="right"></tr>
-    <a href="#">Logout</a>
-  
+    
 <tr>
 	<td align="center" bgcolor="#99CC99"><table width="690" border="0" cellpadding="0" cellspacing="0" >
 
@@ -134,7 +129,7 @@ body {
               </tr>
               <tr>
                 <td width="117" height="26">&nbsp;</td>
-                <td width="450" align="center"><a href="#">Simpan</a></td>
+                <td width="450" align="center"><a href="DaftarSewaHapus.jsp">Simpan</a></td>
               </tr>
             </table></td>
           </tr>
