@@ -26,10 +26,8 @@ public class Sewa implements Serializable {
     private Long id_sewa;
     private String username;
     private String kode_kostum;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date sewa;
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date kembali;
+    private String sewa;
+    private String kembali;
     private int harga_total;
     
    public int getHarga_total(){
@@ -70,16 +68,16 @@ public class Sewa implements Serializable {
     public void setKode_kostum(String kode_kostum) {
         this.kode_kostum = kode_kostum;
     }
-    public Date getSewa() {
+    public String getSewa() {
         return sewa;
     }
-    public void setSewa(Date sewa) {
+    public void setSewa(String sewa) {
         this.sewa = sewa;
     }
-    public Date getKembali() {
+    public String getKembali() {
         return kembali;
     }
-    public void setKembali(Date kembali) {
+    public void setKembali(String kembali) {
         this.kembali = kembali;
     }
    
