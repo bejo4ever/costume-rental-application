@@ -8,8 +8,6 @@ import entity.DaftarSewa;
 import entity.Sewa;
 import entity.DaftarPelanggan;
 import entity.Pelanggan;
-import entity.DaftarUser;
-import entity.User;
 import entity.exceptions.NonexistentEntityException;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -44,7 +42,7 @@ public class HapusSewa extends HttpServlet {
         String message;
         String page;
         Long id_sewa = Long.parseLong(request.getParameter("id_sewa"));
-        String username = request.getParameter("username");
+       // String username = request.getParameter("username");
         
         Sewa s = new Sewa();
         //RequestDispatcher page = null;
@@ -52,11 +50,13 @@ public class HapusSewa extends HttpServlet {
         HttpSession session = request.getSession();
 
         ds.deleteSewa(id_sewa);
-        
-        //kurang delete bdasarkan username
-
+  
         RequestDispatcher requestDispatcher =
-                request.getRequestDispatcher("ListSewa");
+                request.getRequestDispatcher("/successDeleting.jsp");
+                page = "ListSewa";
+                message ="Data berhasil dihapus";
+                request.setAttribute("message", message);
+                request.setAttribute("page", page);
         requestDispatcher.forward(request, response);
           
     }
