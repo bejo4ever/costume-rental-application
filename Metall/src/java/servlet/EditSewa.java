@@ -18,6 +18,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,6 +28,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Rifanda Putri
  */
+@WebServlet(name = "EditSewa", urlPatterns = {"/EditSewa"})
 public class EditSewa extends HttpServlet {
 
     /** 
@@ -44,35 +46,39 @@ public class EditSewa extends HttpServlet {
         DaftarSewa ds = new DaftarSewa();
         Sewa s = new Sewa();
         HttpSession session = request.getSession();
-        DaftarPelanggan dp = new DaftarPelanggan();
+   //     DaftarPelanggan dp = new DaftarPelanggan();
         Pelanggan p = new Pelanggan();
         String message = null;
 
         //getting parameter from input
         String username = (String) session.getAttribute("sessionusername");
-        p = dp.getPelangganFromName(username);
+   //     p = dp.getPelangganFromName(username);
+        
         String temp_id_sewa = request.getParameter("id_sewa");
         Long id_sewa = Long.parseLong(temp_id_sewa);
         String usernamee = request.getParameter("username");
         String kodee_kostum = request.getParameter("kode_kostum");
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String tgll_sewa = request.getParameter("tgl_sewa");
-        String blnn_sewa = request.getParameter("bln_sewa");
-        String thnn_sewa = request.getParameter("thn_sewa");
-        String tgll_kembali = request.getParameter("tgl_kembali");
-        String blnn_kembali = request.getParameter("bln_kembali");
-        String thnn_kembali = request.getParameter("thn_kembali");
-        String temp_harga_totall = request.getParameter("harga_total");
-        String sewaa = thnn_sewa + "-" + blnn_sewa + "-" + tgll_sewa;
-        String kembali = thnn_kembali + "-" + blnn_kembali + "-" + tgll_kembali;
-        Date tgl_sewa = dateFormat.parse(sewaa);
-        Date tgl_kembali = dateFormat.parse(kembali);
-        int status = 0;
+     //   SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String tgl_sewa = request.getParameter("tgl_sewa");
+      //  String blnn_sewa = request.getParameter("bln_sewa");
+     //   String thnn_sewa = request.getParameter("thn_sewa");
+        String tgl_kembali = request.getParameter("tgl_kembali");
+        int harga_total = Integer.parseInt(request.getParameter("harga_total"));
 
+     //   String blnn_kembali = request.getParameter("bln_kembali");
+     //   String thnn_kembali = request.getParameter("thn_kembali");
+       // String temp_harga_total = request.getParameter("harga_total");
+       // String denda = request.getParameter("denda");
+    //    String sewaa = thnn_sewa + "-" + blnn_sewa + "-" + tgl_sewa;
+    //    String kembali = thnn_kembali + "-" + blnn_kembali + "-" + tgll_kembali;
+     //   Date tgl_sewa = dateFormat.parse(sewaa);
+    //    Date tgl_kembali = dateFormat.parse(kembali);
+    //    int status = 0;
+/*
         try {
             //first if --> Jika ada field bertanda bintang yang kosong (tidak diisi)
             if (temp_id_sewa.equals("") || usernamee.equals("")|| kodee_kostum.equals ("")|| tgll_sewa.equals("") || blnn_sewa.equals("") || thnn_sewa.equals("")
-                    || tgll_kembali.equals("") || blnn_kembali.equals("") || thnn_kembali.equals("") || temp_harga_totall.equals("")) {
+                    || tgll_kembali.equals("") || blnn_kembali.equals("") || thnn_kembali.equals("") || temp_harga_total.equals("")) {
                 RequestDispatcher requestDispatcher =
                         request.getRequestDispatcher("/error_page.jsp");
                 message = "Data tidak lengkap, isi semua kolom dengan tanda * ";
@@ -101,18 +107,16 @@ public class EditSewa extends HttpServlet {
                     s.setKode_kostum(kodee_kostum);
                     s.setSewa(tgl_sewa);
                     s.setKembali(tgl_kembali);
-    
-                    //calculate harga total
-                    long milliseconds1 = c1.getTimeInMillis();
-                    long milliseconds2 = c2.getTimeInMillis();
-                    long diff = milliseconds2 - milliseconds1;
-                    int diffDays = (int) (diff / (24 * 60 * 60 * 1000));
-                    int Harga_total = 5000 * diffDays;
-                    s.setHarga_total(Harga_total);
+                   
+                    try {
+                        int harga_total = Integer.parseInt(temp_harga_total);
+                    s.setHarga_total(harga_total);
+                    } catch (NumberFormatException nfe) {
+                    }
 
                     ds.addSewa(s);
                     RequestDispatcher requestDispatcher =
-                            request.getRequestDispatcher("DaftarSewaHapus.jsp");
+                            request.getRequestDispatcher("ListSewa");
                     message = "Data Sewa Berhasil ditambahkan";
                     request.setAttribute("message", message);
                     requestDispatcher.forward(request, response);
@@ -121,7 +125,21 @@ public class EditSewa extends HttpServlet {
             }//end of first else
         }//end of try
         catch (Exception e) {
-        }
+        }*/
+        s.setId_sewa(id_sewa);
+        s.setUsername(username);
+        s.setKode_kostum(kodee_kostum);
+        s.setSewa(tgl_sewa);
+        s.setKembali(tgl_kembali);
+        s.setHarga_total(harga_total);
+     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /** 
+     * Handles the HTTP <code>GET</code> method.
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     }
      // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /** 
@@ -134,7 +152,7 @@ public class EditSewa extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String destination = "/TambahSewa.jsp";
+        String destination = "/EditDaftarSewa.jsp";
 
         RequestDispatcher rd = getServletContext().getRequestDispatcher(destination);
         rd.forward(request, response);
