@@ -67,73 +67,49 @@ body {
         <td class="align_left_top2"  valign="top" ></td>
         <td width="585" rowspan="8" align="left" valign="top"><table width="100%">
           <tr>
-            <td width="50%" ><h4>Sistem Persewaan Kostum Online</h4></td>
-          </tr>
-          <tr>
-            <td width="50%" colspan="2" class="text_orange"><center>
-              <marquee>
-                <h2><b>Edit Sewa</b></h2>
-              </marquee>
-            </center></td>
-          </tr>
-          <tr>
-            <td ><a href="#"></a></td>
-          </tr>
-          <tr>
-            <td colspan="2"><table width="577" height="30" border="0">
-			<tr>
-                <td>ID Sewa</td>
-                <td><form name="form2" method="post" action="">
-                  <label>
-                    <input name="nama_kostum" type="text" id="textfield2" size="35">
-                  </label>
-                *
-                </form></td>
-              </tr>
-              <tr>
-                <td>Username</td>
-                <td><form name="form1" method="post" action="">
-                  <label>
-                    <input type="text" name="id" id="textfield">
-                  </label>
-                *
-                </form></td>
-              </tr>
-              <tr>
-                <td>Kode Kostum </td>
-                <td><form name="form2" method="post" action="">
-                  <label>
-                    <input name="nama_kostum" type="text" id="textfield2" size="35">
-                  </label>
-                *
-                </form></td>
-              </tr>
-              <tr>
-                <td>Tanggal Sewa </td>
-                <td><label>
-                  <input type="text" name="jumlah" id="textfield3">
-                *</label></td>
-              </tr>
-              <tr>
-                <td>Tanggal Kembali </td>
-                <td><label>
-                  <input type="text" name="jumlah" id="textfield3">
-                  *
-                </label></td>
-              </tr>
-              <tr>
-                <td>Total Harga</td>
-                <td><label>
-                  <input type="text" name="harga" id="textfield4">
-                  *
-                </label></td>
-              </tr>
-              <tr>
-                <td width="117" height="26">&nbsp;</td>
-                <td width="450" align="center"><a href="DaftarSewaHapus.jsp">Simpan</a></td>
-              </tr>
-            </table></td>
-          </tr>
+            <td width="50%" ><h4>Sistem Persewaan Kostum Online</h4>
+                <form id="form_300829" class="appnitro"  method="post" action="EditSewa">
+                  <div class="form_description">
+                    <p>
+                  
+                    <marquee>
+                    <h1>Edit Sewa</h1>
+                      </marquee>
+                  </div>
+                  <ul ><li id="li_3" >
+                      <label class="description" for="label2"> Username </label>
+                  <div>
+                        <input id="label2" name="username" class="element text medium" type="text" maxlength="255" value=""/>
+                      </div>
+                  </li>
+                    <li id="li_4" >
+                      <label class="description" for="label3"> Kode Kostum </label>
+                      <div>
+                        <input id="label3" name="kode_kostum" class="element text medium" type="text" maxlength="255" value=""/>
+                      </div>
+                    </li>
+                    <li id="li_6" >
+                      <label class="description" for="element_6"> Tanggal Sewa </label><div>
+                        <input id="element_3" name="sewa" class="element text medium" type="text" maxlength="255" value=""/>
+                      </div>
+                      <label class="description" for="element_6"></label>                    
+                    <li >
+                      <label class="description" for="element_6"></label>
+                      
+		              <label class="description" for="label">Tanggal Kembali </label><div>
+                        <input id="label" name="kembali" class="element text medium" type="text" maxlength="255" value=""/>
+                      </div>
+                    <li >
+                      <label class="description" for="label4">Total Harga </label>
+                      <div>
+                        <input id="label4" name="harga_total" class="element text medium" type="text" maxlength="255" value=""/>
+                        <input id="submit" class="button_text" type="submit" name="submit2" value="Simpan" />
+                        <input id="reset" class="button_text" type="reset" name="reset2" value="Reset" />
+                      </div>                    
+                    </ul>
+                </form>
+              </td>
+            </tr>
         </table></td>
         <td width="159" colspan="2" rowspan="8" align="left" valign="top" class="kolom_kanan"><div id="kolom_kanan">
           <table width="100%">
