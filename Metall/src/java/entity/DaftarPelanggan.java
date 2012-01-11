@@ -168,8 +168,8 @@ public class DaftarPelanggan {
             em.persist(pelanggan);
             em.getTransaction().commit();
         } catch (Exception e) {
-            em.getTransaction().rollback();
-        } finally {
+        em.getTransaction().rollback();        } 
+        finally {
             em.close();
         }}
 
@@ -225,9 +225,9 @@ public class DaftarPelanggan {
             em.remove(pelanggan);
             em.getTransaction().commit();
         } 
-        //catch (Exception e) {
-           // em.getTransaction().rollback();
-        //} 
+        catch (Exception e) {
+            em.getTransaction().rollback();
+        } 
         finally {
             if (em != null) {
                 em.close();
