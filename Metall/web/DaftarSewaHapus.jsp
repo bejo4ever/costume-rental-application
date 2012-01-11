@@ -86,25 +86,16 @@ body {
             <td >&nbsp;</td>
           </tr>
           <tr>
-            <td colspan="2"><table width="599" height="225" border="1">
+            <td colspan="2"><table width="837" border="1">
               <tr>
-                <td width="56" align="center">ID Sewa</td>
-                <td width="64" align="center">Username</td>
-                <td width="91" align="center">Kode Kostum</td>
-                <td width="76" align="center">Tgl. Sewa </td>
-                <td width="89" align="center">Tgl. Kembali </td>
-                <td width="81" align="center">Total Harga</td>
-                <td colspan="2" align="center">Tindakan</td>
-              </tr>
-              <tr>
-                <th scope="col">&nbsp;</th>
-                <th scope="col">&nbsp;</th>
-                <th scope="col">&nbsp;</th>
-                <th scope="col">&nbsp;</th>
-                <th scope="col">&nbsp;</th>
-                <th scope="col">&nbsp;</th>
-                <td align="center"><a href="EditDaftarSewa.jsp">Edit</a></td>
-                <td align="center"><a href="DaftarSewaHapus.jsp">Hapus</a></td>
+                <th width="35" scope="col">No.</th>
+                <th width="50" scope="col">ID</th>
+                <th width="104" scope="col">Username</th>
+                <th width="113" scope="col">Kode Kostum </th>
+                <th width="116" scope="col">Tgl. Sewa </th>
+                <th width="137" scope="col">Tgl. Kembali </th>
+                <th width="134" scope="col">Total Harga </th>
+                <th colspan="2" scope="col">&nbsp; </th>
               </tr>
               <tr>
                 <td>&nbsp;</td>
@@ -113,8 +104,9 @@ body {
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
-                <td align="center"><a href="#">Edit</a></td>
-                <td align="center"><a href="#">Hapus</a></td>
+                <td>&nbsp;</td>
+                <td width="48">Edit</td>
+                <td width="42">Hapus</td>
               </tr>
               <tr>
                 <td>&nbsp;</td>
@@ -123,8 +115,9 @@ body {
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
-                <td align="center"><a href="#">Edit</a></td>
-                <td align="center"><a href="#">Hapus</a></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
               </tr>
               <tr>
                 <td>&nbsp;</td>
@@ -133,8 +126,9 @@ body {
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
-                <td align="center"><a href="#">Edit</a></td>
-                <td align="center"><a href="#">Hapus</a></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
               </tr>
               <tr>
                 <td>&nbsp;</td>
@@ -143,8 +137,9 @@ body {
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
-                <td align="center"><a href="#">Edit</a></td>
-                <td align="center"><a href="#">Hapus</a></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
               </tr>
             </table></td>
           </tr>
