@@ -6,11 +6,10 @@ package servlet;
 
 import entity.DaftarSewa;
 import entity.Sewa;
-import entity.DaftarUser;
-import entity.User;
+import entity.DaftarPelanggan;
+import entity.Pelanggan;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -42,14 +41,14 @@ public class ListSewa extends HttpServlet {
         PrintWriter out = response.getWriter();
         RequestDispatcher dis = null;
         HttpSession session = request.getSession();
-        DaftarUser du = new DaftarUser();
+        DaftarPelanggan dp = new DaftarPelanggan();
         DaftarSewa ds = new DaftarSewa();
-        User u = new User();
-    }
+        Pelanggan p = new Pelanggan();
+    
         List<Sewa> daftarSewa = ds.getDaftarSewa();
         request.setAttribute("sewa", daftarSewa);
 
-        dis = request.getRequestDispatcher("/daftarbarang.jsp");
+        dis = request.getRequestDispatcher("/DaftarSewaHapus.jsp");
         dis.include(request, response);
 
         
@@ -60,7 +59,9 @@ public class ListSewa extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    @Override
+    }
+    
+     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
