@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author aQuWh iMoEtZ >,<
+ * @author Putri
  */
 //@WebServlet(name = "TambahPelanggan", urlPatterns = {"/tambahpelanggan"})
 public class TambahPelanggan extends HttpServlet {
@@ -44,7 +44,7 @@ public class TambahPelanggan extends HttpServlet {
             String nama_pelanggan = request.getParameter("nama_pelanggan");
             String alamat_pelanggan = request.getParameter("alamat_pelanggan");
             String telpon_pelanggan = request.getParameter("telpon_pelanggan");
-            //int tipe = Integer.parseInt(request.getParameter("tipe"));
+            int tipe = Integer.parseInt(request.getParameter("tipe"));
             
             Pelanggan pelanggan = new Pelanggan();
             DaftarPelanggan dp = new DaftarPelanggan();
@@ -67,24 +67,25 @@ public class TambahPelanggan extends HttpServlet {
             pelanggan.setNama_pelanggan(nama_pelanggan);
             pelanggan.setAlamat_pelanggan(alamat_pelanggan);
             pelanggan.setTelpon_pelanggan(telpon_pelanggan);
-            //pelanggan.setTipe(tipe);
+            pelanggan.setTipe(tipe);
            
             dp.addPelanggan(pelanggan);
             List<Pelanggan> plgn = dp.getPlgn();
-            request.setAttribute("pengguna", plgn);
+            request.setAttribute("pelanggan", plgn);
              //diarahkan ke halaman daftar pelanggan
             requestDispatcher =
                         request.getRequestDispatcher("/SuccessSaving.jsp");
-                message = "Pelanggan baru berhasil ditambahkan.";
-                String page = "DaftarPelanggan";
+                message = "Pelanggan baru berhasil ditambahkan heheheheh.";
+                String page = "listpelanggan2";
                 request.setAttribute("message", message);
                 request.setAttribute("page", page);
                 requestDispatcher.forward(request, response);
             } else {
-                message ="Data Anda Berhasil Ditambahkan ";
+               
+                message ="Username telah terdaftar, ulangi lagi ";
                 request.setAttribute("message", message);
-                requestDispatcher = request.getRequestDispatcher("/SuccessSaving.jsp");
-                    requestDispatcher.forward(request, response);
+                requestDispatcher = request.getRequestDispatcher("/error_page.jsp");
+                requestDispatcher.forward(request, response);
             }
 
         }
@@ -107,10 +108,10 @@ public class TambahPelanggan extends HttpServlet {
         DaftarPelanggan dp = new DaftarPelanggan();
         Pelanggan pelanggan = new Pelanggan();
 
-        //mengambil parameter yang sudah dikirim dari halaman daftarPengguna.jsp
+        //mengambil parameter yang sudah dikirim dari halaman daftarPelanggan.jsp
 
        
-        //diarahkan ke halaman profil penyewa tempat
+        //diarahkan ke halaman daftar pelanggan
         dis = request.getRequestDispatcher("/TambahPelanggan.jsp");
         dis.include(request, response);
 
