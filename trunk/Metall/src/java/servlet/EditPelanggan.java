@@ -26,7 +26,10 @@ public class EditPelanggan extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
         String message = null;
+        int tipe = Integer.parseInt(request.getParameter("tipe"));
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String nama_pelanggan = request.getParameter("nama_pelanggan");
@@ -34,49 +37,42 @@ public class EditPelanggan extends HttpServlet {
         String telpon_pelanggan = request.getParameter("telpon_pelanggan");
         
         Pelanggan pelanggan = new Pelanggan();
+        RequestDispatcher page = null;
         DaftarPelanggan dp = new DaftarPelanggan();
+        HttpSession session = request.getSession();
         pelanggan = dp.getPelangganFromName(username);
 
-        pelanggan.setUsername(username);
-        pelanggan.setPassword(password);
-        pelanggan.setNama_pelanggan(nama_pelanggan);
-        pelanggan.setAlamat_pelanggan(alamat_pelanggan);
-        pelanggan.setTelpon_pelanggan(telpon_pelanggan);
-        request.setAttribute("pengguna", pelanggan);
-        
         try {
-        if (nama_pelanggan.equals("") || alamat_pelanggan.equals("") || telpon_pelanggan.equals("")
-                   || username.equals("") || password.equals("")) {
+        if (username.equals("") || password.equals("") || nama_pelanggan.equals("") 
+                   || alamat_pelanggan.equals("") || telpon_pelanggan.equals("") ) {
                 RequestDispatcher requestDispatcher =
                         request.getRequestDispatcher("/error_page.jsp");
                 message = "Data tidak lengkap, isi semua field dengan tanda (*) ";
                 request.setAttribute("message", message);
                 requestDispatcher.forward(request, response);
-            } else {
-                if (pelanggan.getPassword() != password) {
+            } else  if (pelanggan.getUsername().equals(username) != pelanggan.getPassword().equals(password)) {
                     RequestDispatcher requestDispatcher =
                             request.getRequestDispatcher("/error_page.jsp");
                     message = "Password Salah";
                     request.setAttribute("message", message);
                     requestDispatcher.forward(request, response);
                 } else {
-                    dp.editPelanggan(pelanggan);
-                    List<Pelanggan> plgn = dp.getPlgn();
-                    request.setAttribute("pengguna", plgn);
-                    //diarahkan ke halaman profil penyewa tempat
-                     RequestDispatcher requestDispatcher =
-                        request.getRequestDispatcher("/SuccessUpdating.jsp");
-                message = "Data Pengguna berhasil diubah";
-                String page = "DaftarPengguna";
-                request.setAttribute("message", message);
-                request.setAttribute("page", page);
-                requestDispatcher.forward(request, response);
-                }
+                      pelanggan = dp.getPelangganFromName(username);
+                        pelanggan.setUsername(username);
+                        pelanggan.setPassword(password);
+                        pelanggan.setNama_pelanggan(nama_pelanggan);
+                        pelanggan.setAlamat_pelanggan(alamat_pelanggan);
+                        pelanggan.setTelpon_pelanggan(telpon_pelanggan);
+                        dp.editPelanggan(pelanggan);
+        
+        
+                    page = request.getRequestDispatcher("/dftrplg");
+            page.forward(request, response);
             }
             } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
+            }
+         }
 //        finally {            
 //            out.close();
 //        }
@@ -91,12 +87,21 @@ public class EditPelanggan extends HttpServlet {
         DaftarPelanggan dp = new DaftarPelanggan();
         Pelanggan p = new Pelanggan();
 
-        //mengambil parameter yang sudah dikirim dari halaman daftarPengguna.jsp
-        String username = request.getParameter("username");
-        p = dp.getPelangganFromName(username);
-        request.setAttribute("pengguna", p);
-        dis = request.getRequestDispatcher("EditPelanggan.jsp");
-        dis.include(request, response);
+        if (session.getAttribute("sessionusername") != null) {
+            String username = (String) session.getAttribute("sessionusername");
+
+            boolean hasilCheck = dp.checkPelanggan(username);
+            if (hasilCheck) {
+                //mengambil user berdasarkan username dari Daftar User
+                p = dp.getPelangganFromName(username);
+                if (p.getTipe() == 1) {
+                    request.setAttribute("pelanggan", p);
+                    dis = request.getRequestDispatcher("/editPelanggan.jsp");
+                    dis.include(request, response);
+                } else {
+                    dis = request.getRequestDispatcher("listpelanggan2");
+                    dis.forward(request, response);
+                }}}
 }/** 
      * Handles the HTTP <code>POST</code> method.
      * @param request servlet request
@@ -107,7 +112,7 @@ public class EditPelanggan extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+      processRequest(request, response);
     }
 
     /** 
