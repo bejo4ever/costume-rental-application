@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author a
+ * @author Putri
  */
 public class ListPelanggan2 extends HttpServlet {
 
@@ -52,20 +52,7 @@ public class ListPelanggan2 extends HttpServlet {
                     //diarahkan ke halaman daftar pelanggan
                     dis = request.getRequestDispatcher("/dftrplg.jsp");
                     dis.include(request, response);
-//        try {
-//            /* TODO output your page here
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet ListPelanggan</title>");  
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Servlet ListPelanggan at " + request.getContextPath () + "</h1>");
-//            out.println("</body>");
-//            out.println("</html>");
-//             */
-//        } finally {            
-//            out.close();
-//        //}
+
     }}}
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
