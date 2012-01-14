@@ -18,7 +18,7 @@ import javax.persistence.Persistence;
 
 /**
  *
- * @author Denia
+ * @author Putri
  */
 public class DaftarPelanggan {
 
